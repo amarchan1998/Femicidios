@@ -1,62 +1,54 @@
-# Graficos Alejandra Marchan
+# ANÁLISIS DE DATOS
+# Alejandra Marchán
+# Femicidios Artículo El Quantificador
 
 # Preliminares ------------------------------------------------------------
 
-# Librerias
+# Librerías
 
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
-library(mapdata)
-library(MAP)
-library(maps)
-library(dplyr)
-library(ggplot2)
-library(writexl)
-library(openxlsx)
-library(tmap)
+if(!require(readxl)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 
+# Datos
 
-# cargar datos
+# Carga de Datos del Registro Civil
 
-esperanza_vida <- read.csv("C:/Users/maria/OneDrive - Universidad San Francisco de Quito/Documentos/PERSONAL/ARTÍCULOS E INVESTIGACIÓN/LIDES ARTÍCULO/articulo-lide-femicidios/esperanza_vida.csv")
+# Ejecutamos el script de de femicidios_wrangling.R
+
+source('code/reg_civil_wrangling.R') # Carga los datos del Registro Civil
+
+# Carga de datos del Ministerio de Gobierno (Femicidios Oficiales)
 
 femicidios <- read.csv("C:/Users/maria/OneDrive - Universidad San Francisco de Quito/Documentos/PERSONAL/ARTÍCULOS E INVESTIGACIÓN/LIDES ARTÍCULO/articulo-lide-femicidios/femicidios.csv")
 
 femicidios_total <- read.csv("C:/Users/maria/OneDrive - Universidad San Francisco de Quito/Documentos/PERSONAL/ARTÍCULOS E INVESTIGACIÓN/LIDES ARTÍCULO/articulo-lide-femicidios/femicidios_total.csv")
 
-# Estilos 
+# Formatos ------------------------------------------------------------------------------------------------
 
-purple_women <- "#52307c" # color morado para estadísticas de mujeres
+# Definimos algunos formatos para utilizar después
 
-theme_women <- # tema para ggplot de todos los graficos
+# Definimos colores en HEX para los gráficos
+
+# Quantificador
+
+quant_blue<-'#09A4CC'
+quant_grey<-'#5C7C94'
+quant_orange<-'#F8754D'
+quant_red<-'#F44D54'
+
+# Otros
+
+purple_women <- "#52307c" # Color morado para estadísticas de mujeres
+
+# Tema para los gráficos de mujeres
+
+theme_women <-
   theme_bw() +
   theme(panel.grid = element_blank(),
         plot.caption = element_text(hjust = 0, face = 'italic'),
         legend.background = element_blank())
 
-### Análisis de Esperanza de Vida
-
-anios <- seq(1960,2020,5)
-esp <- seq(0,85,5)
-
-esperanza_anual <- ggplot(esperanza_vida, aes(x = as.character(anio), y = esperanza_vida, color = tipo, group =tipo))+
-  geom_line(size = 1)+
-  geom_point()+
-  labs(x = 'Año',
-       y = 'Esperanza de Vida (# de Años)',
-       title = 'Esperanza de Vida en Ecuador (1960 - 2020)')+
-  theme(axis.ticks = element_blank()) + 
-  scale_color_manual(values=c("#94C9A9", "#777DA7", "#D5573B"))+ labs(color = "")+ 
-  scale_x_discrete(breaks = anios)+
-  scale_y_continuous(breaks = esp)+
-  geom_hline(yintercept = 54.295, color= purple_women, linetype = 2)+
-  geom_hline(yintercept = 80.02, color= purple_women, linetype = 2)+
-  annotate('label', x = 51.2, y = 55.8, label = 'Esp. de Vida Mujeres 1960: 55 años', color = purple_women)+
-  annotate('label', x = 10.9, y = 78.5, label = 'Esp. de Vida Mujeres 2020: 80 años', color = purple_women)+
-  theme_women+
-  theme(legend.position = c(.9, .5))
-
-esperanza_anual 
-
+# Análisis ------------------------------------------------------------------------------------------------
 
 ### Femicidios
 ### Análisis Anual
