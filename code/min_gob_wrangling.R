@@ -17,15 +17,38 @@ if(!require(labelled)) install.packages("patchwork", repos = "http://cran.us.r-p
 # Para poder cargar esta base de datos, fue necesario eliminar la imagen (logo del MinGob) para que R
 # no me arroje un error
 
-femicidios_mingob <- read_excel('data/homicidios_intencionales_mingob.xls',
+mingob <- read_excel('data/homicidios_intencionales_mingob.xls',
+                      col_names = c('tipo', 'provincia', 'canton',
+                                     'mes','anio','tipo_arma','edad_edad',
+                                     'sexo','cantidad_hom'),
                                 skip = 2)
 
 # Manipulación --------------------------------------------------------------------------------------------
 
 # Eliminar primera fila (que está vacía)
 
-femicidios_mingob <- femicidios_mingob[-1]
+mingob <- mingob[-1,]
 
+# Generar una base de femicidios solamente
 
+femicidios_mingob <- mingob %>% filter(tipo == 'FEMICIDIO')
+
+# Cambiar el tipo de variables segun se requiera
+
+femicidios_mingob$cantidad_hom <- as.numeric(femicidios_mingob$cantidad_hom)
+
+# Generar una serie de tiempo anual
+
+femicidios_mingob_yr<-
+femicidios_mingob %>% 
+  group_by(anio) %>% 
+  summarize(femicidios=sum(cantidad_hom))
+
+# Generar una serie de tiempo mensual
+
+femicidios_mingob_month <-
+  femicidios_mingob %>% 
+  group_by(anio, mes) %>% 
+  summarize(femicidios=sum(cantidad_hom))
 
 
