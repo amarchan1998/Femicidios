@@ -92,7 +92,6 @@ fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
        y = 'Número de femicidios',
        title = 'Femicidios en Ecuador 2014-2022',
        subtitle = 'Datos Aldea')+
-  scale_fill_manual(values =  c('#52307c'))+
   theme_women
 
 fem_aldea_col
