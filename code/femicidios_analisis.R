@@ -16,7 +16,7 @@ if(!require(readxl)) install.packages("tidyverse", repos = "http://cran.us.r-pro
 # Ejecutamos el script de de femicidios_wrangling.R
 
 source('code/reg_civil_wrangling.R') # Carga los datos del Registro Civil
-
+source('code/fiscalia_denuncias.R')
 # Carga de datos del Fiscalía (Femicidios Oficiales + Otras Muertes)
 
 muertes_fem<-read.csv('data/muertes_fem_fiscalia.csv')
@@ -96,4 +96,15 @@ fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
 
 fem_aldea_col
 
- ###
+ ### Femicidios: Datos Fiscalía General del Estado
+
+fem_fiscalia_col <- ggplot(femicidios_fiscalia_yr, aes(x = as.character(anio), y = count))+
+  geom_col(width = 0.7,
+           color = 'black', fill = '#52307c')+
+  labs(x = 'Año',
+       y = 'Número de femicidios',
+       title = 'Femicidios en Ecuador 2014-2022',
+       subtitle = 'Datos de la Fiscalía General del Ecuador: Número de Denuncias')+
+  theme_women
+
+fem_fiscalia_col
