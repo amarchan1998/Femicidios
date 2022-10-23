@@ -32,6 +32,16 @@ femicidios_fiscalia_yr<-
   group_by(anio) %>% 
   summarize(count=n())
 
-femicidios_fiscalia_yr
-
 sum(femicidios_fiscalia_yr$count)
+
+
+profit_pct_change <- function(x) {
+  x <- x[order(x$anio, decreasing = TRUE), ] # Confirms ordered by decreasing year
+  pct_change <- -diff(x$count)/x$count[-1] * 100 # Gets percent change in profit from preceding year
+  data.frame(year = x$anio[-length(x$anio)], pct_change = pct_change) # Returns data frame
+}
+
+fem_pct_chg <-femicidios_fiscalia_yr %>% 
+  do(profit_pct_change(.))
+
+
