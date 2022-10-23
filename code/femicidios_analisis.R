@@ -16,15 +16,26 @@ if(!require(readxl)) install.packages("tidyverse", repos = "http://cran.us.r-pro
 # Ejecutamos el script de de femicidios_wrangling.R
 
 source('code/reg_civil_wrangling.R') # Carga los datos del Registro Civil
-source('code/fiscalia_denuncias.R')
+
 # Carga de datos del Fiscalía (Femicidios Oficiales + Otras Muertes)
 
 muertes_fem<-read.csv('data/muertes_fem_fiscalia.csv')
+
+# Carga de datos de Fundación ALDEA 
+
 fem_aldea <- read_xlsx('data/femicidios_aldea.xlsx')
+
+# Carga de datos de la Fiscalía (Denuncias)
+
+source('code/fiscalia_denuncias.R')
+
+# Nota: Tanto datos de ALDEA como datos de Fiscalía tuvieron que ser manualmente copiados de la página web
+# para poder  ser utilizados en el análisis. 
+# Los datos de la fiscalía sobre denuncias se solicitaron a la dirección de correo electrónico de estadística@fge
 
 # Formatos ------------------------------------------------------------------------------------------------
 
-# Definimos algunos formatos para utilizar después
+# Definimos algunos formatos para utilizarlos después en el análisis
 
 # Definimos colores en HEX para los gráficos
 
@@ -38,6 +49,7 @@ quant_red<-'#F44D54'
 # Otros
 
 purple_women <- "#88398a" # Color morado para estadísticas de mujeres
+purple_women2 <- '#52307c'  # Color morado más oscuro para estadísticas de mujeres
 
 # Tema para los gráficos de mujeres
 
@@ -50,7 +62,7 @@ theme_women <-
 
 # Análisis ------------------------------------------------------------------------------------------------
 
-### Femicidios
+## Femicidios
 ### Análisis Anual
 
 femicidios_col <- ggplot(muertes_fem, aes(x = as.character(año), y = cantidad, fill = tipo))+
@@ -62,12 +74,13 @@ femicidios_col <- ggplot(muertes_fem, aes(x = as.character(año), y = cantidad, 
        title = 'Muertes de Mujeres en Ecuador 2014-2022',
        subtitle = 'Datos de la Fiscalía General del Estado: Muertes de Mujeres en Contexto Delictivo',
        fill = 'Tipo de muerte')+
-  scale_fill_manual(values =  c('#52307c',purple_women))+
+  scale_fill_manual(values =  c(purple_women, purple_women2))+
   theme_women
 
 femicidios_col
 
- ### Muertes Violentas Hombres vs Mujeres: Datos Registro Civil
+### Muertes Violentas Hombres vs Mujeres
+#### Datos Registro Civil
 
 muertes_violentas_col <- ggplot(deaths_total_yearly_def, aes(x = as.character(year), y = cant, fill = mujer))+
   geom_col(width = 0.7,
@@ -78,12 +91,30 @@ muertes_violentas_col <- ggplot(deaths_total_yearly_def, aes(x = as.character(ye
        title = 'Muertes Violentas en Ecuador 2011-2020',
        subtitle = 'Datos del Registro Civil: Mujeres vs. Hombres',
        fill = 'Sexo')+
-  scale_fill_manual(values =  c('#334d9e','#52307c'))+
+  scale_fill_manual(values =  c('#334d9e',purple_women))+
   theme_women
 
 muertes_violentas_col
 
- ### Femicidios: Datos Aldea
+### Muertes Violentas Solo Mujeres
+#### Datos Registro Civil
+
+muertes_violentas_col_wom <- 
+  ggplot(deaths_total_yearly_wom, aes(x = as.character(year), y = cant))+
+  geom_col(width = 0.7,
+           position = 'dodge',
+           color = 'black')+
+  labs(x = 'Año',
+       y = 'Número de muertes',
+       title = 'Muertes Violentas en Ecuador 2011-2020',
+       subtitle = 'Datos del Registro Civil: Mujeres vs. Hombres',
+       fill = 'Sexo')+
+  scale_fill_manual(values =  c('#334d9e',purple_women))+
+  theme_women
+
+muertes_violentas_col_wom
+
+### Femicidios: Datos Aldea
 
 fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
   geom_col(width = 0.7,

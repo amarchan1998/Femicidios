@@ -34,6 +34,7 @@ femicidios_fiscalia_yr<-
 
 sum(femicidios_fiscalia_yr$count)
 
+# Generar cambios porcentuales ----------------------------------------------------------------------------
 
 profit_pct_change <- function(x) {
   x <- x[order(x$anio, decreasing = TRUE), ] # Confirms ordered by decreasing year

@@ -170,10 +170,10 @@ deaths_total_yearly <-
   group_by(year, sexo) %>%
   summarize(cant = sum(cant))
 
+# Corrigiendo diferencias de nombres en bases
 
- # Corrigiendo diferencias de nombres en bases
-
-deaths_total_yearly$mujer <- ifelse(deaths_total_yearly$sexo %in% c("Mujeres", "Mujer", " Mujeres", " Mujer"),"Mujer","Hombre")
+deaths_total_yearly$mujer <- 
+  ifelse(deaths_total_yearly$sexo %in% c("Mujeres", "Mujer", " Mujeres", " Mujer"),"Mujer","Hombre")
 
 deaths_total_yearly_def <-
   deaths_total_yearly %>%  
@@ -184,7 +184,4 @@ deaths_total_yearly_def <-
 
 deaths_total_yearly_wom <-
   deaths_total_yearly_def %>% 
-  filter(mujer == 1)
-
-deaths_total_yearly_wom
-sum(deaths_total_yearly_wom$cant)
+  filter(mujer == 'Mujer')
