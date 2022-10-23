@@ -62,7 +62,7 @@ femicidios_col <- ggplot(muertes_fem, aes(x = as.character(año), y = cantidad, 
        title = 'Muertes de Mujeres en Ecuador 2014-2022',
        subtitle = 'Datos de la Fiscalía General del Estado: Muertes de Mujeres en Contexto Delictivo',
        fill = 'Tipo de muerte')+
-  scale_fill_manual(values =  c('#52307c',))+
+  scale_fill_manual(values =  c('#52307c',purple_women))+
   theme_women
 
 femicidios_col
