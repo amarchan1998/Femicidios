@@ -61,8 +61,24 @@ femicidios_col <- ggplot(muertes_fem, aes(x = as.character(año), y = cantidad, 
        title = 'Muertes de Mujeres en Ecuador 2014-2022',
        subtitle = 'Datos de la Fiscalía General del Estado: Muertes de Mujeres en Contexto Delictivo',
        fill = 'Tipo de muerte')+
-  scale_fill_manual(values =  c('#52307c',purple_women))+
+  scale_fill_manual(values =  c('#52307c',))+
   theme_women
 
 femicidios_col
+
+ ### Muertes Violentas Hombres vs Mujeres: Datos Registro Civil
+
+muertes_violentas_col <- ggplot(deaths_total_yearly_def, aes(x = as.character(year), y = cant, fill = mujer))+
+  geom_col(width = 0.7,
+           position = 'dodge',
+           color = 'black')+
+  labs(x = 'Año',
+       y = 'Número de muertes',
+       title = 'Muertes Violentas en Ecuador 2011-2020',
+       subtitle = 'Datos del Registro Civil: Mujeres v.s. Hombres',
+       fill = 'Sexo')+
+  scale_fill_manual(values =  c('#334d9e','#52307c'))+
+  theme_women
+
+muertes_violentas_col
 
