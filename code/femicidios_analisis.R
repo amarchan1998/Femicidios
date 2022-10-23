@@ -108,3 +108,16 @@ fem_fiscalia_col <- ggplot(femicidios_fiscalia_yr, aes(x = as.character(anio), y
   theme_women
 
 fem_fiscalia_col
+
+### Cambio Porcentual en Femicidios: Datos Fiscalía General del Estado
+
+fem_pchg <- ggplot(fem_pct_chg, aes(x = as.character(year), y = pct_change, group = 1))+
+  geom_line(size = 1,
+            color = '#52307c')+ geom_point(color =  '#52307c', size = 3)+
+  labs(x = 'Año',
+       y = 'Porcentaje de variación anual',
+       title = 'Porcentaje de Variación Anual de Femicidios en Ecuador 2014-2022',
+       subtitle = 'Datos de la Fiscalía General del Ecuador: % Variación Anual en el Número de Denuncias')+
+  theme_women
+
+fem_pchg
