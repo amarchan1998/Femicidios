@@ -75,7 +75,7 @@ muertes_violentas_col <- ggplot(deaths_total_yearly_def, aes(x = as.character(ye
   labs(x = 'Año',
        y = 'Número de muertes',
        title = 'Muertes Violentas en Ecuador 2011-2020',
-       subtitle = 'Datos del Registro Civil: Mujeres v.s. Hombres',
+       subtitle = 'Datos del Registro Civil: Mujeres vs. Hombres',
        fill = 'Sexo')+
   scale_fill_manual(values =  c('#334d9e','#52307c'))+
   theme_women
