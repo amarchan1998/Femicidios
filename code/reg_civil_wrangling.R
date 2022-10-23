@@ -173,7 +173,7 @@ deaths_total_yearly <-
 
  # Corrigiendo diferencias de nombres en bases
 
-deaths_total_yearly$mujer <- ifelse(deaths_total_yearly$sexo %in% c("Mujeres", "Mujer", " Mujeres", " Mujer"),1,0)
+deaths_total_yearly$mujer <- ifelse(deaths_total_yearly$sexo %in% c("Mujeres", "Mujer", " Mujeres", " Mujer"),"Mujer","Hombre")
 
 deaths_total_yearly_def <-
   deaths_total_yearly %>%  
