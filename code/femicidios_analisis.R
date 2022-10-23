@@ -20,6 +20,7 @@ source('code/reg_civil_wrangling.R') # Carga los datos del Registro Civil
 # Carga de datos del Fiscalía (Femicidios Oficiales + Otras Muertes)
 
 muertes_fem<-read.csv('data/muertes_fem_fiscalia.csv')
+fem_aldea <- read_xlsx('data/femicidios_aldea.xlsx')
 
 # Formatos ------------------------------------------------------------------------------------------------
 
@@ -82,3 +83,16 @@ muertes_violentas_col <- ggplot(deaths_total_yearly_def, aes(x = as.character(ye
 
 muertes_violentas_col
 
+ ### Femicidios: Datos Aldea
+
+fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
+  geom_col(width = 0.7,
+           color = 'black', fill = '#52307c')+
+  labs(x = 'Año',
+       y = 'Número de femicidios',
+       title = 'Femicidios en Ecuador 2014-2022',
+       subtitle = 'Datos Aldea')+
+  scale_fill_manual(values =  c('#52307c'))
+  theme_women
+
+fem_aldea_col
