@@ -59,14 +59,28 @@ femicidios_mingob_month <-
 
 # Se construye una base de Femicidios: 
 
-# 1. MINGOB
+# 1. MINGOB + FGE (obtenido desde pag web de la FGE)
+
+# Cargamos la base de la FGE
+
+fge<-
+  read.csv('data/muertes_fem_fiscalia.csv') %>% 
+  filter(tipo == 'Total') %>% 
+  select(-tipo) %>% 
+  mutate(fuente = 'Oficial')
+
 # 2. ALDEA
 
 # Cargamos la base de ALDEA
 
-fem_aldea <- read_xlsx('data/femicidios_aldea.xlsx')
+aldea <- 
+  read_xlsx('data/femicidios_aldea.xlsx',
+             col_names = c('año','cantidad'),
+             skip = 1) %>% 
+  mutate(fuente = 'ALDEA')
 
+# Se construye la base conjunta
 
-
-
-
+femicidios_conjunta<-
+  fge %>%
+  bind_rows(aldea)

@@ -17,17 +17,24 @@ if(!require(readxl)) install.packages("tidyverse", repos = "http://cran.us.r-pro
 
 source('code/reg_civil_wrangling.R') # Carga los datos del Registro Civil
 
+# Carga de Datos del Ministerio de Gobierno
+
+source('code/min_gob_wrangling.R')
+
 # Carga de datos del Fiscalía (Femicidios Oficiales + Otras Muertes)
 
-muertes_fem<-read.csv('data/muertes_fem_fiscalia.csv')
+muertes_fem<-
+  read.csv('data/muertes_fem_fiscalia.csv') %>% 
+  filter(tipo!= 'Total')
 
 # Carga de datos de Fundación ALDEA 
 
-fem_aldea <- read_xlsx('data/femicidios_aldea.xlsx')
+fem_aldea <- 
+  read_xlsx('data/femicidios_aldea.xlsx')
 
 # Carga de datos de la Fiscalía (Denuncias)
 
-source('code/fiscalia_denuncias.R')
+source('code/fiscalia_denuncias_wrangling.R')
 
 # Nota: Tanto datos de ALDEA como datos de Fiscalía tuvieron que ser manualmente copiados de la página web
 # para poder  ser utilizados en el análisis. 
@@ -92,6 +99,21 @@ fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
   theme_women
 
 fem_aldea_col
+
+## Femicidios conjunto
+
+fem_conjunto <- ggplot(femicidios_conjunta, aes(x = as.character(año), y = cantidad, fill = fuente))+
+  geom_col(width = 0.7,
+           color = 'black',
+           position = 'dodge')+
+  labs(x = 'Año',
+       y = 'Número de femicidios',
+       title = 'Femicidios en Ecuador 2014-2022',
+       subtitle = 'Comparación entre fuentes oficiales Ministerio de Gobierno/Fiscalía General y Fundación ALDEA')+
+  scale_fill_manual(values =  c(purple_women, purple_women2))+
+  theme_women
+
+fem_conjunto
 
 ## Denuncias Femicidios: Datos Fiscalía General del Estado
 
