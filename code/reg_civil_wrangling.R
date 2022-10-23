@@ -185,3 +185,19 @@ deaths_total_yearly_def <-
 deaths_total_yearly_wom <-
   deaths_total_yearly_def %>% 
   filter(mujer == 'Mujer')
+
+# Cambios porcentuales año a año
+
+# Generar cambios porcentuales ----------------------------------------------------------------------------
+
+profit_pct_change <- function(x) {
+  x <- x[order(x$year, decreasing = TRUE), ] # Confirms ordered by decreasing year
+  pct_change <- -diff(x$cant)/x$cant[-1] * 100 # Gets percent change in profit from preceding year
+  data.frame(year2 = x$year[-length(x$year)], pct_change = pct_change) # Returns data frame
+}
+
+muerte_pct_chg <-deaths_total_yearly_def %>% 
+  do(profit_pct_change(.))
+
+
+

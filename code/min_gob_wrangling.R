@@ -51,4 +51,22 @@ femicidios_mingob_month <-
   group_by(anio, mes) %>% 
   summarize(femicidios=sum(cantidad_hom))
 
+# Unión de Bases de Datos ---------------------------------------------------------------------------------
+
+# En esta sección se unen algunas bases de datos para construir gráficos conjuntos
+
+## Base de Femicidios
+
+# Se construye una base de Femicidios: 
+
+# 1. MINGOB
+# 2. ALDEA
+
+# Cargamos la base de ALDEA
+
+fem_aldea <- read_xlsx('data/femicidios_aldea.xlsx')
+
+
+
+
 

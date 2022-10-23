@@ -60,7 +60,7 @@ theme_women <-
         legend.background = element_blank(),
         text =  element_text(color = 'black'))
 
-# Análisis ------------------------------------------------------------------------------------------------
+# Análisis Univariado ------------------------------------------------------------------------------------------------
 
 ## Femicidios
 ### Análisis Anual
@@ -72,14 +72,58 @@ femicidios_col <- ggplot(muertes_fem, aes(x = as.character(año), y = cantidad, 
   labs(x = 'Año',
        y = 'Número de muertes',
        title = 'Muertes de Mujeres en Ecuador 2014-2022',
-       subtitle = 'Datos de la Fiscalía General del Estado: Muertes de Mujeres en Contexto Delictivo',
+       subtitle = 'Fuente: Fiscalía General del Estado - Muertes de Mujeres en Contexto Delictivo',
        fill = 'Tipo de muerte')+
   scale_fill_manual(values =  c(purple_women, purple_women2))+
   theme_women
 
 femicidios_col
 
-### Muertes Violentas Hombres vs Mujeres
+## Femi(ni)cidios: Datos Aldea
+
+fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
+  geom_col(width = 0.7,
+           color = 'black', 
+           fill = purple_women)+
+  labs(x = 'Año',
+       y = 'Número de femicidios',
+       title = 'Femi(ni)cidios en Ecuador 2014-2022',
+       subtitle = 'Fuente: Asociación Lationamericana para el Desarrollo Alternativo (ALDEA)')+
+  theme_women
+
+fem_aldea_col
+
+## Denuncias Femicidios: Datos Fiscalía General del Estado
+
+fem_fiscalia_col <- ggplot(femicidios_fiscalia_yr, aes(x = as.character(anio), y = count))+
+  geom_col(width = 0.7,
+           color = 'black', 
+           fill = purple_women)+
+  labs(x = 'Año',
+       y = 'Número de denuncias de femicidios',
+       title = 'Denuncias de Femicidios en Ecuador 2014-2022',
+       subtitle = 'Fuente: Fiscalía General del Ecuador')+
+  theme_women
+
+fem_fiscalia_col
+
+### Cambio Porcentual en Femicidios: Datos Fiscalía General del Estado
+
+fem_pchg <- 
+  ggplot(fem_pct_chg, aes(x = as.character(year), y = pct_change, group = 1))+
+  geom_line(size = 1,
+            color = purple_women)+
+  geom_point(color = purple_women2,
+             size = 3)+
+  labs(x = 'Año',
+       y = 'Variación Anual (%)',
+       title = 'Variación Anual (%) de Denuncias de Femicidios en Ecuador 2014-2022',
+       subtitle = 'Fuente: Fiscalía General del Ecuador')+
+  theme_women
+
+fem_pchg
+
+## Muertes Violentas Hombres vs Mujeres
 #### Datos Registro Civil
 
 muertes_violentas_col <- ggplot(deaths_total_yearly_def, aes(x = as.character(year), y = cant, fill = mujer))+
@@ -89,66 +133,28 @@ muertes_violentas_col <- ggplot(deaths_total_yearly_def, aes(x = as.character(ye
   labs(x = 'Año',
        y = 'Número de muertes',
        title = 'Muertes Violentas en Ecuador 2011-2020',
-       subtitle = 'Datos del Registro Civil: Mujeres vs. Hombres',
+       subtitle = 'Fuente: Registro Civil',
        fill = 'Sexo')+
   scale_fill_manual(values =  c('#334d9e',purple_women))+
   theme_women
 
 muertes_violentas_col
 
-### Muertes Violentas Solo Mujeres
-#### Datos Registro Civil
+## Muertes Violentas Solo Mujeres
+### Datos Registro Civil
 
 muertes_violentas_col_wom <- 
   ggplot(deaths_total_yearly_wom, aes(x = as.character(year), y = cant))+
   geom_col(width = 0.7,
            position = 'dodge',
-           color = 'black')+
+           color = 'black',
+           fill = purple_women)+
   labs(x = 'Año',
        y = 'Número de muertes',
        title = 'Muertes Violentas en Ecuador 2011-2020',
-       subtitle = 'Datos del Registro Civil: Mujeres vs. Hombres',
+       subtitle = 'Fuente: Registro Civil',
        fill = 'Sexo')+
-  scale_fill_manual(values =  c('#334d9e',purple_women))+
   theme_women
 
 muertes_violentas_col_wom
 
-### Femicidios: Datos Aldea
-
-fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
-  geom_col(width = 0.7,
-           color = 'black', fill = '#52307c')+
-  labs(x = 'Año',
-       y = 'Número de femicidios',
-       title = 'Femicidios en Ecuador 2014-2022',
-       subtitle = 'Datos Aldea')+
-  theme_women
-
-fem_aldea_col
-
- ### Femicidios: Datos Fiscalía General del Estado
-
-fem_fiscalia_col <- ggplot(femicidios_fiscalia_yr, aes(x = as.character(anio), y = count))+
-  geom_col(width = 0.7,
-           color = 'black', fill = '#52307c')+
-  labs(x = 'Año',
-       y = 'Número de femicidios',
-       title = 'Femicidios en Ecuador 2014-2022',
-       subtitle = 'Datos de la Fiscalía General del Ecuador: Número de Denuncias')+
-  theme_women
-
-fem_fiscalia_col
-
-### Cambio Porcentual en Femicidios: Datos Fiscalía General del Estado
-
-fem_pchg <- ggplot(fem_pct_chg, aes(x = as.character(year), y = pct_change, group = 1))+
-  geom_line(size = 1,
-            color = '#52307c')+ geom_point(color =  '#52307c', size = 3)+
-  labs(x = 'Año',
-       y = 'Porcentaje de variación anual',
-       title = 'Porcentaje de Variación Anual de Femicidios en Ecuador 2014-2022',
-       subtitle = 'Datos de la Fiscalía General del Ecuador: % Variación Anual en el Número de Denuncias')+
-  theme_women
-
-fem_pchg
