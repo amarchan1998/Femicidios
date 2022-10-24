@@ -180,3 +180,20 @@ muertes_violentas_col_wom <-
 
 muertes_violentas_col_wom
 
+ ### Muertes hombre vs Mujeres: Cambio Porcentual Registro Civil
+
+muertes_pc_col_muj <- 
+  ggplot(muertes_pc_total, aes(x = as.character(year), y = pct_change, color = sexo, group = sexo))+
+  geom_line(size = 1)+
+  geom_point(size = 3)+
+  labs(x = 'Año',
+       y = 'Variación anual (%)',
+       title = 'Variación Anual (%) en Muertes Violentas en Ecuador 2012-2020',
+       subtitle = 'Fuente: Registro Civil')+
+  labs(color = "Sexo")+scale_color_manual(values =  c('#334d9e', purple_women))
+  theme_women
+
+  muertes_pc_col_muj
+
+ 
+
