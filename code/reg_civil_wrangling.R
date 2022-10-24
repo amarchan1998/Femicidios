@@ -11,6 +11,8 @@
 if(!require(haven)) install.packages("survey", repos = "http://cran.us.r-project.org")
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 if(!require(labelled)) install.packages("patchwork", repos = "http://cran.us.r-project.org")
+if(!require(DataCombine)) install.packages("DataCombine", repos = "http://cran.us.r-project.org")
+if(!require(Quandel)) install.packages("Quandel", repos = "http://cran.us.r-project.org")
 
 # Datos ---------------------------------------------------------------------------------------------------
 
@@ -184,20 +186,27 @@ deaths_total_yearly_def <-
 
 deaths_total_yearly_wom <-
   deaths_total_yearly_def %>% 
-  filter(mujer == 'Mujer')
+  filter(mujer == 'Mujer') 
 
-# Cambios porcentuales año a año
+deaths_total_yearly_wom$cant <- as.integer(deaths_total_yearly_wom$cant)
+deaths_total_yearly_wom$year <- as.integer(deaths_total_yearly_wom$year)
 
-# Generar cambios porcentuales ----------------------------------------------------------------------------
+library(DataCombine)
 
-profit_pct_change <- function(x) {
-  x <- x[order(x$year, decreasing = TRUE), ] # Confirms ordered by decreasing year
-  pct_change <- -diff(x$cant)/x$cant[-1] * 100 # Gets percent change in profit from preceding year
-  data.frame(year2 = x$year[-length(x$year)], pct_change = pct_change) # Returns data frame
-}
+# Calculate a percent change
 
-muerte_pct_chg <-deaths_total_yearly_def %>% 
-  do(profit_pct_change(.))
+deaths_total_yearly_wom<- deaths_total_yearly_wom %>% as.data.frame()
+
+
+muertes_muj<- change(deaths_total_yearly_wom, Var ='cant',
+         NewVar = 'pct_change',
+         slideBy = -1,
+         type='percent') 
+
+muertes_muj[-1,]
+
+
+
 
 
 
