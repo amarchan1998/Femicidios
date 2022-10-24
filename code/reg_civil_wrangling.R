@@ -186,7 +186,7 @@ deaths_total_yearly_def <-
 
 deaths_total_yearly_wom <-
   deaths_total_yearly_def %>% 
-  filter(mujer == 'Mujer') 
+  filter(mujer == 'Mujer')  %>%  select(year, cant)
 
 deaths_total_yearly_wom$cant <- as.integer(deaths_total_yearly_wom$cant)
 deaths_total_yearly_wom$year <- as.integer(deaths_total_yearly_wom$year)
@@ -204,6 +204,29 @@ muertes_muj<- change(deaths_total_yearly_wom, Var ='cant',
          type='percent') 
 
 muertes_muj[-1,]
+
+
+# Filtrando solo para hombres
+
+deaths_total_yearly_men <-
+  deaths_total_yearly_def %>% 
+  filter(mujer == 'Hombre') %>%  select(year, cant)
+
+deaths_total_yearly_men$cant <- as.integer(deaths_total_yearly_men$cant)
+deaths_total_yearly_men$year <- as.integer(deaths_total_yearly_men$year)
+
+
+# Calculate a percent change
+
+deaths_total_yearly_men<- deaths_total_yearly_men %>% as.data.frame()
+
+
+muertes_hom<- change(deaths_total_yearly_men, Var ='cant',
+                     NewVar = 'pct_change',
+                     slideBy = -1,
+                     type='percent') 
+
+muertes_hom[-1,]
 
 
 
