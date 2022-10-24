@@ -201,9 +201,9 @@ deaths_total_yearly_wom<- deaths_total_yearly_wom %>% as.data.frame()
 muertes_muj<- change(deaths_total_yearly_wom, Var ='cant',
          NewVar = 'pct_change',
          slideBy = -1,
-         type='percent') 
+         type='percent') %>% mutate(sexo = 'Mujer') 
 
-muertes_muj[-1,]
+muertes_muj <- muertes_muj[-1,]
 
 
 # Filtrando solo para hombres
@@ -224,11 +224,13 @@ deaths_total_yearly_men<- deaths_total_yearly_men %>% as.data.frame()
 muertes_hom<- change(deaths_total_yearly_men, Var ='cant',
                      NewVar = 'pct_change',
                      slideBy = -1,
-                     type='percent') 
+                     type='percent') %>% mutate(sexo = 'Hombre') 
 
-muertes_hom[-1,]
+muertes_hom <-muertes_hom[-1,]
 
+ # Junto todo en la misma tabla
 
+muertes_pc_total <- bind_rows(muertes_muj,muertes_hom)
 
 
 
