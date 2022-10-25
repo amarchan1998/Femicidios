@@ -57,6 +57,7 @@ quant_red<-'#F44D54'
 
 purple_women <- "#88398a" # Color morado para estadísticas de mujeres
 purple_women2 <- '#52307c'  # Color morado más oscuro para estadísticas de mujeres
+purple_women3 <- '#ca93d9'
 
 # Tema para los gráficos de mujeres
 
@@ -108,9 +109,10 @@ fem_conjunto <- ggplot(femicidios_conjunta, aes(x = as.character(año), y = cant
            position = 'dodge')+
   labs(x = 'Año',
        y = 'Número de femicidios',
-       title = 'Femicidios en Ecuador 2014-2022',
-       subtitle = 'Comparación entre fuentes oficiales Ministerio de Gobierno/Fiscalía General y Fundación ALDEA')+
-  scale_fill_manual(values =  c(purple_women, purple_women2))+
+       title = 'Femicidios en Ecuador 2011-2022',
+       subtitle = 'Comparación entre fuentes oficiales Fundación ALDEA, Fiscalía General y Registro Civil',
+       fill = 'Fuente')+
+  scale_fill_manual(values =  c(purple_women, purple_women2, purple_women3))+
   theme_women
 
 fem_conjunto

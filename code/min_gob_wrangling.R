@@ -11,7 +11,9 @@
 if(!require(haven)) install.packages("survey", repos = "http://cran.us.r-project.org")
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 if(!require(labelled)) install.packages("patchwork", repos = "http://cran.us.r-project.org")
+library(readxl)
 
+source('code/reg_civil_wrangling.R') # Carga los datos del Registro Civil
 # Datos ---------------------------------------------------------------------------------------------------
 
 # Para poder cargar esta base de datos, fue necesario eliminar la imagen (logo del MinGob) para que R
@@ -67,7 +69,7 @@ fge<-
   read.csv('data/muertes_fem_fiscalia.csv') %>% 
   filter(tipo == 'Total') %>% 
   select(-tipo) %>% 
-  mutate(fuente = 'Oficial')
+  mutate(fuente = 'FGE')
 
 # 2. ALDEA
 
@@ -79,8 +81,18 @@ aldea <-
              skip = 1) %>% 
   mutate(fuente = 'ALDEA')
 
+# 3. REGISTRO CIVIL
+
+# Cargamos la base de REGISTRO CIVIL
+
+reg_civil <- read_xlsx('data/deaths_wom.xlsx',
+                       col_names = c('año','cantidad'),
+                       skip = 1) %>% 
+  mutate(fuente = 'Registro Civil')
+
+
 # Se construye la base conjunta
 
 femicidios_conjunta<-
   fge %>%
-  bind_rows(aldea)
+  bind_rows(aldea) %>% bind_rows(reg_civil)

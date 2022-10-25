@@ -205,6 +205,8 @@ muertes_muj<- change(deaths_total_yearly_wom, Var ='cant',
 
 muertes_muj <- muertes_muj[-1,]
 
+library(writexl)
+write_xlsx(deaths_total_yearly_wom, 'data/deaths_wom.xlsx')
 
 # Filtrando solo para hombres
 
