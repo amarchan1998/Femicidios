@@ -8,11 +8,10 @@
 
 # Este código es para instalar las librerías que necesite el usuario para compilar el código
 
-if(!require(haven)) install.packages("survey", repos = "http://cran.us.r-project.org")
+if(!require(haven)) install.packages("haven", repos = "http://cran.us.r-project.org")
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
-if(!require(labelled)) install.packages("patchwork", repos = "http://cran.us.r-project.org")
+if(!require(labelled)) install.packages("labelled", repos = "http://cran.us.r-project.org")
 if(!require(DataCombine)) install.packages("DataCombine", repos = "http://cran.us.r-project.org")
-if(!require(Quandel)) install.packages("Quandel", repos = "http://cran.us.r-project.org")
 
 # Datos ---------------------------------------------------------------------------------------------------
 
@@ -232,7 +231,8 @@ muertes_hom <-muertes_hom[-1,]
 
  # Junto todo en la misma tabla
 
-muertes_pc_total <- bind_rows(muertes_muj,muertes_hom)
+muertes_pc_total <- 
+  bind_rows(muertes_muj,muertes_hom)
 
 
 

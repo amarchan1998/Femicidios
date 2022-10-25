@@ -8,9 +8,9 @@
 
 # Este código es para instalar las librerías que necesite el usuario para compilar el código
 
-if(!require(haven)) install.packages("survey", repos = "http://cran.us.r-project.org")
+if(!require(haven)) install.packages("haven", repos = "http://cran.us.r-project.org")
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
-if(!require(labelled)) install.packages("patchwork", repos = "http://cran.us.r-project.org")
+if(!require(labelled)) install.packages("labelled", repos = "http://cran.us.r-project.org")
 
 # Datos ---------------------------------------------------------------------------------------------------
 

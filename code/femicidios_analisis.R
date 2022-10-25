@@ -7,7 +7,7 @@
 # Librerías
 
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
-if(!require(readxl)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+if(!require(readxl)) install.packages("readxl", repos = "http://cran.us.r-project.org")
 
 # Datos
 
@@ -103,14 +103,15 @@ fem_aldea_col
 
 ## Femicidios conjunto
 
-fem_conjunto <- ggplot(femicidios_conjunta, aes(x = as.character(año), y = cantidad, fill = fuente))+
+fem_conjunto <- 
+  ggplot(femicidios_conjunta, aes(x = as.character(año), y = cantidad, fill = fuente))+
   geom_col(width = 0.7,
            color = 'black',
            position = 'dodge')+
   labs(x = 'Año',
        y = 'Número de femicidios',
        title = 'Femicidios en Ecuador 2011-2022',
-       subtitle = 'Comparación entre fuentes oficiales Fundación ALDEA, Fiscalía General y Registro Civil',
+       subtitle = 'Comparación entre fuentes Fundación ALDEA, Fiscalía General y Registro Civil',
        fill = 'Fuente')+
   scale_fill_manual(values =  c(purple_women, purple_women2, purple_women3))+
   theme_women
@@ -150,7 +151,8 @@ fem_pchg
 ## Muertes Violentas Hombres vs Mujeres
 #### Datos Registro Civil
 
-muertes_violentas_col <- ggplot(deaths_total_yearly_def, aes(x = as.character(year), y = cant, fill = mujer))+
+muertes_violentas_col <- 
+  ggplot(deaths_total_yearly_def, aes(x = as.character(year), y = cant, fill = mujer))+
   geom_col(width = 0.7,
            position = 'dodge',
            color = 'black')+

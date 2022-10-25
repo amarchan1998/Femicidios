@@ -8,10 +8,9 @@
 
 # Este código es para instalar las librerías que necesite el usuario para compilar el código
 
-if(!require(haven)) install.packages("survey", repos = "http://cran.us.r-project.org")
+if(!require(haven)) install.packages("haven", repos = "http://cran.us.r-project.org")
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
-if(!require(labelled)) install.packages("patchwork", repos = "http://cran.us.r-project.org")
-library(readxl)
+if(!require(labelled)) install.packages("labelled", repos = "http://cran.us.r-project.org")
 
 source('code/reg_civil_wrangling.R') # Carga los datos del Registro Civil
 # Datos ---------------------------------------------------------------------------------------------------
@@ -33,7 +32,8 @@ mingob <- mingob[-1,]
 
 # Generar una base de femicidios solamente
 
-femicidios_mingob <- mingob %>% filter(tipo == 'FEMICIDIO')
+femicidios_mingob <- 
+  mingob %>% filter(tipo == 'FEMICIDIO')
 
 # Cambiar el tipo de variables segun se requiera
 
