@@ -68,7 +68,7 @@ theme_women <-
         legend.background = element_blank(),
         text =  element_text(color = 'black'))
 
-# Análisis Univariado ------------------------------------------------------------------------------------------------
+# Análisis ------------------------------------------------------------------------------------------------
 
 ## Femicidios
 ### Análisis Anual
@@ -80,9 +80,10 @@ femicidios_col <- ggplot(muertes_fem, aes(x = as.character(año), y = cantidad, 
   labs(x = 'Año',
        y = 'Número de muertes',
        title = 'Muertes de Mujeres en Ecuador 2014-2022',
-       subtitle = 'Fuente: Fiscalía General del Estado - Muertes de Mujeres en Contexto Delictivo',
+       subtitle = 'Fuente: Consejo Nacional para la Igualdad de Género',
        fill = 'Tipo de muerte')+
   scale_fill_manual(values =  c(purple_women, purple_women2))+
+  scale_y_continuous(breaks = c(50,100,150,200,250,300,350))+
   theme_women
 
 femicidios_col
