@@ -1,0 +1,15 @@
+---
+title: "Femicidios en el Ecuador"
+author: "Alejandra Marchán y Daniel Sánchez"
+date: "`r Sys.Date()`"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+# Opciones para todos los chunks
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Femicidios en Ecuador
+
+# El Problema Estadístico
