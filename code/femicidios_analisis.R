@@ -72,11 +72,22 @@ theme_women <-
   theme(panel.grid = element_blank(),
         plot.caption = element_text(hjust = 0, face = 'italic'),
         legend.background = element_blank(),
-        text =  element_text(color = 'black'))
+        text =  element_text(color = 'black'),
+        axis.ticks.x = element_blank())
 
 # Análisis ------------------------------------------------------------------------------------------------
 
 ## Femicidios
+
+# Caption largo para el gráfico 
+
+caption_grafo1<-
+  'El gráfico representa las muertes de mujeres en contexto delictivo desde agosto de 2014, cuando se tipificó
+el delito de femicido en el COIP ecuatoriano, hasta finales de octubre del 2022, cuando los datos fueron extraídos
+del panel de visualización del Consejo Nacional para la Igualdad de Género, localizado en la página web de la Fiscalía 
+General del Estado. Las cifras en blanco muestran los totales de femicidios y otras muertes, que incluyen asesinatos,
+homicidios intencionales, sicariatos, robos, ejecuciones extrajudiciales, entre otros.'
+
 ### Análisis Anual
 
 femicidios_col <- 
@@ -88,15 +99,18 @@ femicidios_col <-
        y = 'Número de muertes',
        title = 'Muertes de Mujeres en Contexto Delictivo 2014-2022',
        subtitle = 'Fuente: Consejo Nacional para la Igualdad de Género',
-       fill = 'Tipo de muerte')+
+       fill = 'Tipo de muerte',
+       caption = str_wrap(caption_grafo1, 205))+
   scale_fill_manual(values =  c(purple_women, purple_women2),
                     limits = c('Femicidio', 'Otras'))+ # Utilizando el argumento "limits" no tengo que incluir el total en la leyenda
-  scale_y_continuous(breaks = c(50,100,150,200,250,300,350))+
   geom_text(data = femicidios_totales,
             aes(label = cantidad),
             color = 'white',
-            vjust = 2)+ # Incluyo texto para incluir la suma de ambos, que está en la base de datos.
-  theme_women
+            vjust = 1.5)+ # Incluyo texto para incluir la suma de ambos, que está en la base de datos.
+  theme_women+
+  theme(legend.position = c(0.1, 0.85),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) # Incluir ediciones al tema después del tema predeterminado para que funcione
 
 femicidios_col
 
