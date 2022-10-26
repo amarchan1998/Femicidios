@@ -5,6 +5,8 @@ date: "`r Sys.Date()`"
 output:
   html_document:
     df_print: paged
+bibliography: references.bib
+csl: apa_num.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -16,6 +18,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ![](images/graf1-femicidios-vs-otros.png)
 
-En la actualidad existe un recuento de las muertes violentas de las mujeres desde agosto 2014, año en el que se tipificó el delito de femicidio en el Código Orgánico Integral Penal - cuerpo de ley que regula el poder punitivo del estado ecuatoriano - hasta finales de 2022, período en el que los autores recuperaron los datos del gráfico de arriba de el reporte presentado por el Consejo Nacional de Igualdad de Género.
+En la actualidad existe un recuento de las muertes violentas de las mujeres desde agosto 2014, año en el que se tipificó el delito de femicidio en el Código Orgánico Integral Penal - cuerpo de ley que regula el poder punitivo del estado ecuatoriano [@códigoo] - hasta finales de 2022, momento en el que los autores recuperaron los datos del gráfico de arriba de el [[reporte](https://www.fiscalia.gob.ec/analitica-muertes-de-mujeres-en-contexto-delictivo/) presentado periódicamente por el Consejo Nacional de Igualdad de Género [-@fiscalía].
 
 # El Problema Estadístico
