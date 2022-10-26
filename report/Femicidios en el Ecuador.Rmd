@@ -12,4 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Femicidios en Ecuador
 
+![](images/graf1-femicidios-vs-otros.png)
+
+En la actualidad existe un recuento de las muertes violentas de las mujeres desde agosto 2014, año en el que se tipificó el delito de femicidio en el Código Orgánico Integral Penal - cuerpo de ley que regula el poder punitivo del estado ecuatoriano - hasta finales de 2022, período en el que los autores recuperaron los datos del gráfico de arriba de el reporte presentado por el Consejo Nacional de Igualdad de Género.
+
 # El Problema Estadístico

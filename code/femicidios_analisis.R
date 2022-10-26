@@ -72,7 +72,7 @@ theme_women <-
   theme(panel.grid = element_blank(),
         plot.caption = element_text(hjust = 0, face = 'italic'),
         legend.background = element_blank(),
-        text =  element_text(color = 'black'),
+        text =  element_text(color = 'black', size = 12),
         axis.ticks.x = element_blank())
 
 # Análisis ------------------------------------------------------------------------------------------------
