@@ -95,7 +95,7 @@ femicidios_col <-
   geom_col(width = 0.7,
            position = 'stack',
            color = 'black')+
-  labs(x = 'Año',
+  labs(x = '',
        y = 'Número de muertes',
        title = 'Muertes de Mujeres en Contexto Delictivo 2014-2022',
        subtitle = 'Fuente: Consejo Nacional para la Igualdad de Género',
@@ -116,7 +116,7 @@ femicidios_col
 
 # Guardar la imagen
 
-png('images/graf1-femicidios-otros-total.webp')
+ggsave("images/graf1-femicidios-vs-otros.png", device = "png", width = 12.5, height = 7, dpi = 900)
 
 ## Femi(ni)cidios: Datos Aldea
 
@@ -124,7 +124,7 @@ fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
   geom_col(width = 0.7,
            color = 'black', 
            fill = purple_women)+
-  labs(x = 'Año',
+  labs(x = '',
        y = 'Número de femicidios',
        title = 'Femi(ni)cidios en Ecuador 2014-2022',
        subtitle = 'Fuente: Asociación Lationamericana para el Desarrollo Alternativo (ALDEA)')+
