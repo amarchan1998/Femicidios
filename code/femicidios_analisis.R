@@ -27,6 +27,12 @@ muertes_fem<-
   read.csv('data/muertes_fem_fiscalia.csv') %>% 
   filter(tipo!= 'Total')
 
+# Se construye una base de solamente los totales
+
+femicidios_totales <-
+  read.csv('data/muertes_fem_fiscalia.csv') %>% 
+  filter(tipo == 'Total')
+
 # Carga de datos de Fundación ALDEA 
 
 fem_aldea <- 
@@ -73,17 +79,23 @@ theme_women <-
 ## Femicidios
 ### Análisis Anual
 
-femicidios_col <- ggplot(muertes_fem, aes(x = as.character(año), y = cantidad, fill = tipo))+
+femicidios_col <- 
+  ggplot(muertes_fem, aes(x = as.character(año), y = cantidad, fill = tipo))+
   geom_col(width = 0.7,
            position = 'stack',
            color = 'black')+
   labs(x = 'Año',
        y = 'Número de muertes',
-       title = 'Muertes de Mujeres en Ecuador 2014-2022',
+       title = 'Muertes de Mujeres en Contexto Delictivo 2014-2022',
        subtitle = 'Fuente: Consejo Nacional para la Igualdad de Género',
        fill = 'Tipo de muerte')+
-  scale_fill_manual(values =  c(purple_women, purple_women2))+
+  scale_fill_manual(values =  c(purple_women, purple_women2),
+                    limits = c('Femicidio', 'Otras'))+ # Utilizando el argumento "limits" no tengo que incluir el total en la leyenda
   scale_y_continuous(breaks = c(50,100,150,200,250,300,350))+
+  geom_text(data = femicidios_totales,
+            aes(label = cantidad),
+            color = 'white',
+            vjust = 2)+ # Incluyo texto para incluir la suma de ambos, que está en la base de datos.
   theme_women
 
 femicidios_col

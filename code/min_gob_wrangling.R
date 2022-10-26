@@ -95,4 +95,7 @@ reg_civil <- read_xlsx('data/deaths_wom.xlsx',
 
 femicidios_conjunta<-
   fge %>%
-  bind_rows(aldea) %>% bind_rows(reg_civil)
+  bind_rows(aldea) %>% 
+  bind_rows(reg_civil)
+
+
