@@ -114,6 +114,10 @@ femicidios_col <-
 
 femicidios_col
 
+# Guardar la imagen
+
+png('images/graf1-femicidios-otros-total.webp')
+
 ## Femi(ni)cidios: Datos Aldea
 
 fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
