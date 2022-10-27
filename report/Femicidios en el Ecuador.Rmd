@@ -1,6 +1,6 @@
 ---
 title: "Femicidios en el Ecuador"
-author: "Alejandra Marchán y Daniel Sánchez"
+author: "Alejandra Marchán y Daniel Sánchez 4ever"
 date: "`r Sys.Date()`"
 output:
   html_document:
