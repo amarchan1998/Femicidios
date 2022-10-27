@@ -149,6 +149,25 @@ fem_conjunto <-
 
 fem_conjunto
 
+## Femicidios conjunto (solo fuentes con mismos años)
+
+fem_conjunto2 <- 
+  ggplot(femicidios_conjunta2, aes(x = as.character(año), y = cantidad, fill = fuente))+
+  geom_col(width = 0.7,
+           color = 'black',
+           position = 'dodge')+
+  labs(x = 'Año',
+       y = 'Número de femicidios',
+       title = 'Femicidios en Ecuador 2014-2020',
+       subtitle = 'Comparación entre fuentes Fundación ALDEA, Fiscalía General y Registro Civil',
+       fill = 'Fuente')+
+  scale_fill_manual(values =  c(purple_women, purple_women2, purple_women3))+
+  theme_women
+
+fem_conjunto2
+
+
+
 ## Denuncias Femicidios: Datos Fiscalía General del Estado
 
 fem_fiscalia_col <- ggplot(femicidios_fiscalia_yr, aes(x = as.character(anio), y = count))+
