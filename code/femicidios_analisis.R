@@ -260,7 +260,7 @@ muertes_pc_col_muj <-
        y = 'Variación anual (%)',
        title = 'Variación Anual (%) en Muertes Violentas en Ecuador 2012-2020',
        subtitle = 'Fuente: Registro Civil')+
-  labs(color = "Sexo")+scale_color_manual(values =  c('#334d9e', purple_women))
+  labs(color = "Sexo")+scale_color_manual(values =  c('#334d9e', purple_women))+
   theme_women
 
   muertes_pc_col_muj
