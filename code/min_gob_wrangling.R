@@ -11,6 +11,7 @@
 if(!require(haven)) install.packages("haven", repos = "http://cran.us.r-project.org")
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 if(!require(labelled)) install.packages("labelled", repos = "http://cran.us.r-project.org")
+if(!require(readxl)) install.packages("labelled", repos = "http://cran.us.r-project.org")
 
 source('code/reg_civil_wrangling.R') # Carga los datos del Registro Civil
 # Datos ---------------------------------------------------------------------------------------------------
@@ -71,6 +72,18 @@ fge<-
   select(-tipo) %>% 
   mutate(fuente = 'FGE')
 
+# Sacamos el porcentaje de cambio para los datos de la FGE
+
+fge_change<- fge %>% as.data.frame()
+
+
+fge_change<- change(fge, Var ='cantidad',
+                     NewVar = 'pct_change',
+                     slideBy = -1,
+                     type='percent')
+
+fge_change
+
 # 2. ALDEA
 
 # Cargamos la base de ALDEA
@@ -80,6 +93,20 @@ aldea <-
              col_names = c('año','cantidad'),
              skip = 1) %>% 
   mutate(fuente = 'ALDEA')
+
+aldea
+
+# Sacamos el porcentaje de cambio para los datos de Aldea
+
+aldea_change<- aldea %>% as.data.frame()
+
+
+aldea_change<- change(aldea_change, Var ='cantidad',
+                    NewVar = 'pct_change',
+                    slideBy = -1,
+                    type='percent')
+
+aldea_change
 
 # 3. REGISTRO CIVIL
 
