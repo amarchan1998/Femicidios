@@ -108,7 +108,7 @@ femicidios_col <-
             color = 'white',
             vjust = 1.5)+ # Incluyo texto para incluir la suma de ambos, que está en la base de datos.
   theme_women+
-  theme(legend.position = c(0.08, 0.85),
+  theme(legend.position = c(0.12,0.85),
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank()) # Incluir ediciones al tema después del tema predeterminado para que funcione
 
