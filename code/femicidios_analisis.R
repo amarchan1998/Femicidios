@@ -100,7 +100,7 @@ femicidios_col <-
        title = 'Muertes de Mujeres en Contexto Delictivo 2014-2022',
        subtitle = 'Fuente: Consejo Nacional para la Igualdad de Género',
        fill = 'Tipo de muerte',
-       caption = str_wrap(caption_grafo1, 205))+
+       caption = str_wrap(caption_grafo1, 160))+
   scale_fill_manual(values =  c(purple_women, purple_women2),
                     limits = c('Femicidio', 'Otras'))+ # Utilizando el argumento "limits" no tengo que incluir el total en la leyenda
   geom_text(data = femicidios_totales,
@@ -108,7 +108,7 @@ femicidios_col <-
             color = 'white',
             vjust = 1.5)+ # Incluyo texto para incluir la suma de ambos, que está en la base de datos.
   theme_women+
-  theme(legend.position = c(0.12,0.85),
+  theme(legend.position = c(0.08,0.85),
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank()) # Incluir ediciones al tema después del tema predeterminado para que funcione
 
@@ -116,7 +116,11 @@ femicidios_col
 
 # Guardar la imagen
 
-ggsave("images/graf1-femicidios-vs-otros.png", device = "png", width = 12.5, height = 7, dpi = 900)
+png("images/graf1-femicidios-vs-otros.png", width = 900, height = 650, unit = 'px')
+
+femicidios_col
+
+dev.off()
 
 ## Femi(ni)cidios: Datos Aldea
 
@@ -267,3 +271,5 @@ muertes_pc_col_muj <-
 
  
 
+
+  
