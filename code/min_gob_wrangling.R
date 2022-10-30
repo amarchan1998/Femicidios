@@ -103,7 +103,7 @@ aldea_change<- aldea %>% as.data.frame()
 
 aldea_change<- change(aldea_change, Var ='cantidad',
                     NewVar = 'pct_change',
-                    slideBy = -1,
+                    slideBy = 1,
                     type='percent')
 
 aldea_change

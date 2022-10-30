@@ -47,7 +47,7 @@ No obstante, en el gráfico 3 decidimos incluir la información que nos da el Re
 
 ![](images/graf4-femicidios-aldea-01.png)
 
-Con el objetivo de tener información de una fuente que no esté controlada o dirigida por el Estado, incluímos a los datos que han sido recopilados por la Asociación Latinoamericana para el Desarrollo Alternativo (ALDEA), "una organización sin fines de lucro conformada por un grupo de mujeres y hombres con alto compromiso para apoyar en la construcción de una sociedad incluyente, equitativa y sustentable" (cita). En esta fuente encontramos un reporte tipo dashboard del año 2014 al 2022 (<http://80.241.217.8/mapas_estadisticos/femi_pro/#>). 
+Con el objetivo de tener información de una fuente que no esté controlada o dirigida por el Estado, incluímos a los datos que han sido recopilados por la Asociación Latinoamericana para el Desarrollo Alternativo (ALDEA), "una organización sin fines de lucro conformada por un grupo de mujeres y hombres con alto compromiso para apoyar en la construcción de una sociedad incluyente, equitativa y sustentable" (cita). En esta fuente encontramos un reporte tipo dashboard del año 2014 al 2022 (<http://80.241.217.8/mapas_estadisticos/femi_pro/#>). De acuerdo a estos datos como se puede ver en el gráfico 4, el año 2022 ha sido el que más femicidios ha presentado con un cambio porcentual de 5.58% en comparación al 2021. 
 
 
 
