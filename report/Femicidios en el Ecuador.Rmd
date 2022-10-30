@@ -39,8 +39,8 @@ Por este motivo, hemos acudido a otras fuentes con el objetivo de tener una mejo
 
 ![](images/graf2-femicidios-fiscalia.png)
 
-Como se puede observar en el gráfico 2, según los datos que proporciona la FGE desde el 2014 al 2022, el mayor número de femicidios se dieron durante el año 2017, lo cual no coincide con las dos fuentes mencionadas anteriormente. En este caso tenemos un cambio porcentual negativo de 14.12% del 2021 al 2022, por lo que podríamos tener una subestimación en los datos de la FGE. Debido a todas estas inconsistencias, acudimos a la información que el Registro Civil podría tener acerca de femicidios, lo que conseguimos en la página del INEC 
+Como se puede observar en el gráfico 2, según los datos que proporciona la FGE desde el 2014 al 2022, el mayor número de femicidios se dieron durante el año 2017, lo cual no coincide con las dos fuentes mencionadas anteriormente. En este caso tenemos un cambio porcentual negativo de 14.12% del 2021 al 2022, por lo que podríamos tener una subestimación en los datos de la FGE. Debido a todas estas inconsistencias, acudimos a la información que el Registro Civil podría tener acerca de femicidios, lo que conseguimos en la página del INEC (<https://www.ecuadorencifras.gob.ec/defunciones-generales/#:~:text=En%20el%20a%C3%B1o%202021%20se,de%20la%20publicaci%C3%B3n%20es%20anual.>)
 
-![](images/graf2-femicidios-registro_civil.png)
+![](images/graf3-femicidios-registro_civil.png)
 
 Al utilizar otras fuentes como el Registro Civil
