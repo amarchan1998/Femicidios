@@ -43,4 +43,8 @@ Como se puede observar en el gráfico 2, según los datos que proporciona la FGE
 
 ![](images/graf3-femicidios-registro-civil-01.png)
 
-No obstante, en el gráfico 3 decidimos incluir la información que nos da el Regsitro Civil sobre defunciones violentas de mujeres como femicidios. En este gráfico se puede observar que
+No obstante, en el gráfico 3 decidimos incluir la información que nos da el Regsitro Civil sobre defunciones violentas de mujeres como femicidios. En este gráfico se puede observar que sólo tenemos esta información del año 2011 al 2020. Para el 2020 tenemos un número menor de femicidios en comparación a los años anteriores con un cambio porcentual negativo con respecto al 2019 de 19.75% y el año con una mayor cantidad de este tipo de incidentes es el 2012. Otra vez logramos determinar que los datos varían con respecto a las otras fuentes.
+
+![](images/graf4-femicidios-aldea-01.png)
+
+Con el objetivo de tener información de una fuente que no esté controlada o dirigida por el Estado, incluímos a los datos que han sido recopilados por la Asociación Latinoamericana para el Desarrollo Alternativo (ALDEA), "una organización sin fines de lucro conformada por un grupo de mujeres y hombres con alto compromiso para apoyar en la construcción de una sociedad incluyente, equitativa y sustentable" (cita). 
