@@ -136,6 +136,29 @@ fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
 
 fem_aldea_col
 
+
+
+# Sacamos el porcentaje de cambio para los datos de la FGE
+
+aldea_change<- fem_aldea %>% as.data.frame()
+
+
+aldea_change<- change(aldea_change, Var ='num_fem',
+                    NewVar = 'pct_change',
+                    slideBy = 1,
+                    type='percent')
+
+aldea_change
+
+# Guardar la imagen
+
+png("images/graf4-femicidios-aldea.png", width = 900, height = 650, unit = 'px')
+
+fem_aldea_col
+
+dev.off()
+
+
 ## Femicidios conjunto
 
 fem_conjunto <- 
@@ -202,6 +225,26 @@ fem_fiscalia_col <- ggplot(femicidios_fiscalia_yr, aes(x = as.character(anio), y
 
 fem_fiscalia_col
 
+# Sacamos el porcentaje de cambio para los datos de la FGE
+
+fge_change<- femicidios_fiscalia_yr %>% as.data.frame()
+
+
+fge_change<- change(fge_change, Var ='count',
+                    NewVar = 'pct_change',
+                    slideBy = -1,
+                    type='percent')
+
+fge_change
+
+# Guardar la imagen
+
+png("images/graf2-femicidios-fiscalia.png", width = 900, height = 650, unit = 'px')
+
+fem_fiscalia_col
+
+dev.off()
+
 ### Cambio Porcentual en Femicidios: Datos Fiscalía General del Estado
 
 fem_pchg <- 
@@ -253,6 +296,14 @@ muertes_violentas_col_wom <-
   theme_women
 
 muertes_violentas_col_wom
+
+# Guardar la imagen
+
+png("images/graf3-femicidios-registro-civil.png", width = 900, height = 650, unit = 'px')
+
+muertes_violentas_col_wom
+
+dev.off()
 
  ### Muertes hombre vs Mujeres: Cambio Porcentual Registro Civil
 
