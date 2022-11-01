@@ -172,9 +172,22 @@ fem_conjunto <-
        subtitle = 'Comparación entre fuentes Fundación ALDEA, Fiscalía General y Registro Civil',
        fill = 'Fuente')+
   scale_fill_manual(values =  c(purple_women, purple_women2, purple_women3))+
-  theme_women
+  theme_women+
+  theme(legend.position = c(0.08,0.85),
+                   axis.text.y = element_blank(),
+                   axis.ticks.y = element_blank())
 
 fem_conjunto
+
+
+## Guardo imagen
+
+
+png("images/graf5-femicidios-compar.png", width = 900, height = 650, unit = 'px')
+
+fem_conjunto
+
+dev.off()
 
 ## Femicidios conjunto (solo fuentes con mismos años)
 

@@ -125,6 +125,11 @@ femicidios_conjunta<-
   bind_rows(aldea) %>% 
   bind_rows(reg_civil)
 
+# Filtro años que necesito
+
+femicidios_conjunta <- femicidios_conjunta %>% 
+  filter(año %in% c(2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022))
+
 
 # Filtro 2014-2020 donde tengo datos para las tres fuentes
 
