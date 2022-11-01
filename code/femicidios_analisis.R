@@ -242,7 +242,6 @@ fem_fiscalia_col
 
 fge_change<- femicidios_fiscalia_yr %>% as.data.frame()
 
-
 fge_change<- change(fge_change, Var ='count',
                     NewVar = 'pct_change',
                     slideBy = -1,
