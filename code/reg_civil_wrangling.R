@@ -17,6 +17,7 @@ if(!require(DataCombine)) install.packages("DataCombine", repos = "http://cran.u
 
 # Cargar bases de datos (descargadas del INEC) para la información del Registro Civil
 
+deaths_2021 <- read_spss("data/EDG_2021.sav")
 deaths_2020 <- read_spss("data/EDG_2020.sav")
 deaths_2019 <- read_spss("data/BDD_EDG_2019.sav")
 deaths_2018 <- read_spss("data/EDG_2018.sav")
@@ -32,6 +33,7 @@ deaths_2011 <- read_spss("data/EDG_2011.sav")
 
 # Manipulación de la base de datos del Registro Civil para la unión final.
 
+deaths_2021 <- as_factor(deaths_2021)
 deaths_2020 <- as_factor(deaths_2020)
 deaths_2019 <- as_factor(deaths_2019)
 deaths_2018 <- as_factor(deaths_2018)
@@ -42,6 +44,15 @@ deaths_2014 <- as_factor(deaths_2014)
 deaths_2013 <- as_factor(deaths_2013)
 deaths_2012 <- as_factor(deaths_2012)
 deaths_2011 <- as_factor(deaths_2011)
+
+# 2021
+hom <- function(x) ifelse(x %in% "Homicidios", 1, 0)
+deaths_2021$hom <- hom(deaths_2021$mor_viol)
+deaths_2021 <- 
+  deaths_2021 %>% 
+  group_by(sexo) %>% 
+  summarize(cant = sum(hom)) %>% 
+  mutate(year = 2021) 
 
 # 2020
 hom <- function(x) ifelse(x %in% "Homicidios", 1, 0)
@@ -153,7 +164,8 @@ deaths_2011 <-
 # Total de todos los años
 
 deaths_total<-
-  deaths_2020 %>% 
+  deaths_2021 %>% 
+  bind_rows(deaths_2020) %>% 
   bind_rows(deaths_2019) %>% 
   bind_rows(deaths_2018) %>%
   bind_rows(deaths_2017) %>%
