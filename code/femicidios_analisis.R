@@ -269,7 +269,7 @@ fem_pchg <-
              size = 3)+
   labs(x = 'Año',
        y = 'Variación Anual (%)',
-       title = 'Variación Anual (%) de Denuncias de Femicidios en Ecuador 2014-2022',
+       title = 'Denuncias de Femicidios 2014-2022 (Var. Anual)',
        subtitle = 'Fuente: Fiscalía General del Ecuador')+
   theme_women
 
