@@ -8,6 +8,8 @@
 
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 if(!require(readxl)) install.packages("readxl", repos = "http://cran.us.r-project.org")
+if(!require(survey)) install.packages("survey", repos = "http://cran.us.r-project.org")
+if(!require(patchwork)) install.packages("patchwork", repos = "http://cran.us.r-project.org")
 
 # Datos
 
@@ -272,6 +274,17 @@ fem_pchg <-
   theme_women
 
 fem_pchg
+
+### Dos gráficos de FGE
+
+grafge2<-
+  fem_pchg+fem_fiscalia_col  +
+  plot_layout(ncol = 2) +
+  plot_annotation(title = 'FGE: Femicidios en Ecuador 2014-2022',
+                  theme = theme(plot.caption = element_text(hjust = 0, face = 'italic'),
+                                plot.title = element_text(hjust = 0.5)))
+grafge2
+ggsave("images/graf6-fge-comparacion.png", device = "png", width = 12.5, height = 7, dpi = 900)
 
 ## Muertes Violentas Hombres vs Mujeres
 #### Datos Registro Civil
