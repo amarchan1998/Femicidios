@@ -233,9 +233,7 @@ fem_fiscalia_col <- ggplot(femicidios_fiscalia_yr, aes(x = as.character(anio), y
            color = 'black', 
            fill = purple_women)+
   labs(x = 'Año',
-       y = 'Número de denuncias de femicidios',
-       title = 'Denuncias de Femicidios en Ecuador 2014-2022',
-       subtitle = 'Fuente: Fiscalía General del Ecuador')+
+       y = 'Número de denuncias de femicidios')+
   theme_women
 
 fem_fiscalia_col
@@ -268,9 +266,7 @@ fem_pchg <-
   geom_point(color = purple_women2,
              size = 3)+
   labs(x = 'Año',
-       y = 'Variación Anual (%)',
-       title = 'Denuncias de Femicidios 2014-2022 (Var. Anual)',
-       subtitle = 'Fuente: Fiscalía General del Ecuador')+
+       y = 'Variación Anual (%)')+
   theme_women
 
 fem_pchg
@@ -278,9 +274,10 @@ fem_pchg
 ### Dos gráficos de FGE
 
 grafge2<-
-  fem_pchg+fem_fiscalia_col  +
+  fem_fiscalia_col + fem_pchg +
   plot_layout(ncol = 2) +
-  plot_annotation(title = 'FGE: Femicidios en Ecuador 2014-2022',
+  plot_annotation(title = 'Denuncias de Femicidios en Ecuador 2014-2022',
+                  subtitle = 'Fuente: Fiscalía General del Estado',
                   theme = theme(plot.caption = element_text(hjust = 0, face = 'italic'),
                                 plot.title = element_text(hjust = 0.5)))
 grafge2
