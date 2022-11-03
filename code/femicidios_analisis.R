@@ -273,16 +273,21 @@ fem_pchg
 
 ### Dos gráficos de FGE
 
+caption <- 'Fuente: Fiscalía General del Estado'
+
 grafge2<-
   fem_fiscalia_col + fem_pchg +
-  plot_layout(ncol = 2) + labs(x = 'Año')+
+  plot_layout(ncol = 2) +
   plot_annotation(title = 'Denuncias de Femicidios en Ecuador 2014-2022',
-                  subtitle = 'Fuente: Fiscalía General del Estado',
+                  caption = str_wrap(caption, 210),
                   theme = theme(plot.caption = element_text(hjust = 0, face = 'italic'),
-                                plot.title = element_text(hjust = 0.5))) + 
-                  theme(axis.title.x = element_text(hjust=-0.4))
+                                plot.title = element_text(hjust = 0.5, size = 20))) +
                   theme_women
+                 
+grafge2<- grafge2 + labs( x = 'Año') + theme(axis.title.x = element_text(hjust=-0.12))
+
 grafge2
+
 ggsave("images/graf6-fge-comparacion.png", device = "png", width = 12.5, height = 7, dpi = 900)
 
 ## Muertes Violentas Hombres vs Mujeres
