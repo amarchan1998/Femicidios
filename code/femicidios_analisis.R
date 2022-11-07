@@ -110,7 +110,7 @@ femicidios_col <-
             color = 'white',
             vjust = 1.5)+ # Incluyo texto para incluir la suma de ambos, que está en la base de datos.
   theme_women+
-  theme(legend.position = c(0.08,0.85),
+  theme(legend.position = c(0.08,0.9),
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank()) # Incluir ediciones al tema después del tema predeterminado para que funcione
 
@@ -138,8 +138,6 @@ fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
 
 fem_aldea_col
 
-
-
 # Sacamos el porcentaje de cambio para los datos de la FGE
 
 aldea_change<- fem_aldea %>% as.data.frame()
@@ -159,7 +157,6 @@ png("images/graf4-femicidios-aldea.png", width = 900, height = 650, unit = 'px')
 fem_aldea_col
 
 dev.off()
-
 
 ## Femicidios conjunto
 
@@ -181,9 +178,7 @@ fem_conjunto <-
 
 fem_conjunto
 
-
 ## Guardo imagen
-
 
 png("images/graf5-femicidios-compar.png", width = 900, height = 650, unit = 'px')
 
@@ -273,18 +268,28 @@ fem_pchg
 
 ### Dos gráficos de FGE
 
-caption <- 'Fuente: Fiscalía General del Estado'
+# Caption largo para el gráfico 
+
+caption_fge_denuncias<- 'Se muestran las denuncias del delito de femicidio (art. 141 del COIP) anualmente en el panel derecho y 
+la tasa de crecimiento anual de las mismas en el panel derecho. Los datos provienen de un pedido de información 
+realizado a la FGE (estadistica@fiscalia.gob.ec) por los autores, presentando las denuncias desde agosto de 2014
+hasta octubre de 2022. Se toman en cuenta el número de registros (filas) por año existentes en la base de datos, puesto que
+un mayor número de víctimas o de noticias de delito NDD no necesariamente comprende un mayor número de delitos o denuncias en sí.'
 
 grafge2<-
   fem_fiscalia_col + fem_pchg +
   plot_layout(ncol = 2) +
   plot_annotation(title = 'Denuncias de Femicidios en Ecuador 2014-2022',
-                  caption = str_wrap(caption, 210),
+                  subtitle = 'Fuente: Fiscalía General del Estado (FGE)',
+                  caption = str_wrap(caption_fge_denuncias, 240),
                   theme = theme(plot.caption = element_text(hjust = 0, face = 'italic'),
                                 plot.title = element_text(hjust = 0.5, size = 20))) +
                   theme_women
                  
-grafge2<- grafge2 + labs( x = 'Año') + theme(axis.title.x = element_text(hjust=-0.12))
+grafge2<- 
+  grafge2 + 
+  labs( x = 'Año') + 
+  theme(axis.title.x = element_text(hjust=-0.12))
 
 grafge2
 
@@ -348,8 +353,3 @@ muertes_pc_col_muj <-
   theme_women
 
   muertes_pc_col_muj
-
- 
-
-
-  

@@ -12,14 +12,17 @@ csl: apa_num.csl
 
 ```{r setup, include=FALSE}
 # Opciones para todos los chunks
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = F)
 ```
 
 # Muertes Violentas de Mujeres en Ecuador
 
-![](images/graf1-femicidios-vs-otros.png)
+```{r femicidios-completo-reporte}
+knitr::include_graphics('../images/graf1-femicidios-vs-otros.png')
+```
 
-En Ecuador existe un recuento de muertes violentas de mujeres desde agosto 2014, año en el que se tipificó el delito de femicidio en el Código Orgánico Integral Penal (COIP) - cuerpo de ley que regula el poder punitivo del estado [@código] - hasta finales de 2022, momento en el que los autores recuperaron los datos del [reporte](https://www.fiscalia.gob.ec/analitica-muertes-de-mujeres-en-contexto-delictivo/) presentado periódicamente por el Gobierno Nacional, mediante la Comisión Especial de Estadística de Seguridad, Justicia, Crimen y Transparencia[^1] [-@fiscalía]. Los autores recopilamos esta información del reporte, la cual se puede observar en el gráfico de arriba. Las cifras separan a las muertes de mujeres en dos categorías diferentes, siendo una los *femicidios*, un delito introducido en el COIP de 2014, artículo 141: "la persona que, como resultado de relaciones de poder manifestadas en cualquier tipo de violencia, de muerte a una mujer por el hecho de serlo o por su condición de género"[^2].
+
+En Ecuador existe un recuento de muertes violentas de mujeres desde agosto 2014, año en el que se tipificó el delito de femicidio en el Código Orgánico Integral Penal (COIP) - cuerpo de ley que regula el poder punitivo del estado [@códigoo] - hasta finales de 2022, momento en el que los autores recuperaron los datos del [reporte](https://www.fiscalia.gob.ec/analitica-muertes-de-mujeres-en-contexto-delictivo/) presentado periódicamente por el Gobierno Nacional, mediante la Comisión Especial de Estadística de Seguridad, Justicia, Crimen y Transparencia[^1] [-@fiscalía]. Los autores recopilamos esta información del reporte, la cual se puede observar en el gráfico de arriba. Las cifras separan a las muertes de mujeres en dos categorías diferentes, siendo una los *femicidios*, un delito introducido en el COIP de 2014, artículo 141: "la persona que, como resultado de relaciones de poder manifestadas en cualquier tipo de violencia, de muerte a una mujer por el hecho de serlo o por su condición de género"[^2].
 
 [^1]: Esta comisión constituye a varias diferentes instituciones gubernamentales, pero el reporte en cuestión está colgado en la página web de la Fiscalía General del Estado. En adelante, nos referimos a este esfuerzo como simplemente \<\<reporte oficial\>\>.
 
@@ -49,9 +52,12 @@ En primer lugar, no existe una forma de calcular un número de femicidios por me
 
 Si bien la información que se nos envió incluyó información hasta el 2014 para todos los delitos solicitados, se nos dijo que no se podía proporcionar información suficiente para diferenciar víctimas por género, debido a que *en algunos casos las víctimas no son identificadas o son desconocidas y por tanto la variable tiene subregistro.* En lugar de un número de muertes femeninas, como presenta el reporte oficial, la información que nos envió la fiscalía nos *remite un valor porcentual* sin una interpretación clara, puesto a que no existe una explicación exacta sobre la forma en la que este porcentaje se construye en la base de datos. Sigue sin ser clara la manera en la que es calculada la forma en la que se calculan las muertes de mujeres en contexto delictivo del reporte oficial presentado por el Gobierno.
 
-Los analistas de la FGE mencionaron que *se debe observar que la Fiscalía dispone de información de gestión procesal de la justicia. El tema de sentencias corresponde a la Judicatura. Es más, para determinar propiamente al sujeto como víctima o victimario se debe considerar las sentencias.* Esto lleva a entender que la información que la FGE está dispuesta a proporcionar no es suficiente para generar las visualizaciones que ellos presentan en su sitio web (y de acuerdo a sus documentos, son elaborados por la FGE también). Sin embargo, de ser este el caso, esto debería mencionarse en las visualizaciones, no después de varios días de haber hecho una solicitud de información. Adicionalmente, el Consejo de la Judicatura no cuenta con un sitio web o un correo electrónico específico para pedidos de información estadística. Una vez más, se evidencia una grave falta de seriedad en la administración pública cuantitativa, que ponen en entredicho la veracidad de los datos presentados en reporte oficial.
+Los analistas de la FGE mencionaron que *se debe observar que la Fiscalía dispone de información de gestión procesal de la justicia. El tema de sentencias corresponde a la Judicatura. Es más, para determinar propiamente al sujeto como víctima o victimario se debe considerar las sentencias.* Esto lleva a entender que la información que la FGE está dispuesta a proporcionar no es suficiente para generar las visualizaciones que ellos presentan (y de acuerdo a sus documentos, también elaboran). Sin embargo, de ser este el caso, debería mencionarse en las visualizaciones, no después de varios días de haber hecho una solicitud de información. Adicionalmente, el Consejo de la Judicatura no cuenta con un sitio web o un correo electrónico específico para pedidos de información estadística. Una vez más, se evidencia una grave falta de seriedad en la administración pública de la información, que ponen en entredicho la veracidad de los datos presentados en reporte oficial.
 
-![](images/graf6-fge-comparacion-11.png)
+```{r grafico-denuncias-fge}
+knitr::include_graphics('../images/graf6-fge-comparacion.png')
+```
+De todas maneras, se utilizaron los datos enviados por la FGE para analizar el delito de femicidio desde 2014 a 2022.
 
 Como se puede observar en el gráfico 2, según los datos que proporciona la FGE desde el 2014 al 2022, el mayor número de femicidios se dieron durante el año 2017, lo cual no coincide con las dos fuentes mencionadas anteriormente. En este caso tenemos un cambio porcentual negativo de 14.12% del 2021 al 2022, por lo que podríamos tener una subestimación en los datos de la FGE. Debido a todas estas inconsistencias, acudimos a la información que el Registro Civil podría tener acerca de femicidios, lo que analizamos mediante los datos de defunciones que constan en la página del [INEC](https://www.ecuadorencifras.gob.ec/defunciones-generales/#:~:text=En%20el%20a%C3%B1o%202021%20se,de%20la%20publicaci%C3%B3n%20es%20anual.). De esta fuente únicamente pudimos obtener número de defunciones anuales y el tipo de muerte que utilizamos para nuestro análisis es "muerte violenta", sin embargo, en este caso el problema es que no hay una categoría denominada femicidio por lo que el problema con estos datos es que no podemos estar seguros hasta que punto estaríamos analizando femicidios con todas las implicaciones que establece el artículo mencionado anteriormente.
 
