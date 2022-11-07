@@ -307,6 +307,8 @@ muertes_violentas_col <-
        subtitle = 'Fuente: Registro Civil',
        fill = 'Sexo')+
   scale_fill_manual(values =  c('#334d9e',purple_women))+
+  geom_text(aes(label = cant),
+            vjust = 1.5)+
   theme_women+
   theme(legend.position = c(0.85,0.86),
         axis.text.y = element_blank(),
@@ -340,7 +342,7 @@ muertes_violentas_col_wom
 
 dev.off()
 
- ### Muertes hombre vs Mujeres: Cambio Porcentual Registro Civil
+### Muertes hombre vs Mujeres: Cambio Porcentual Registro Civil
 
 muertes_pc_col_muj <- 
   ggplot(muertes_pc_total, aes(x = as.character(year), y = pct_change, color = sexo, group = sexo))+
