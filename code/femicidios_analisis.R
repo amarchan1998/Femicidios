@@ -156,7 +156,6 @@ aldea_change<- change(aldea_change, Var ='num_fem',
                       type='percent')
 aldea_change
 
-
 ## Femicidios conjunto
 
 fem_conjunto <- 
@@ -309,6 +308,10 @@ muertes_violentas_col <-
   scale_fill_manual(values =  c('#334d9e',purple_women))+
   geom_text(aes(label = cant),
             vjust = 1.5)+
+  geom_text(data = muertes_fem_perc,
+            aes(label = woman_perc),
+            color = 'white',
+            vjust = 1.5)
   theme_women+
   theme(legend.position = c(0.85,0.86),
         axis.text.y = element_blank(),
