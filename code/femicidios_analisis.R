@@ -138,18 +138,6 @@ fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
 
 fem_aldea_col
 
-# Sacamos el porcentaje de cambio para los datos de la FGE
-
-aldea_change<- fem_aldea %>% as.data.frame()
-
-
-aldea_change<- change(aldea_change, Var ='num_fem',
-                    NewVar = 'pct_change',
-                    slideBy = 1,
-                    type='percent')
-
-aldea_change
-
 # Guardar la imagen
 
 png("images/graf4-femicidios-aldea.png", width = 900, height = 650, unit = 'px')
@@ -157,6 +145,17 @@ png("images/graf4-femicidios-aldea.png", width = 900, height = 650, unit = 'px')
 fem_aldea_col
 
 dev.off()
+
+# Sacamos el porcentaje de cambio para estos datos
+
+aldea_change<- fem_aldea %>% as.data.frame()
+
+aldea_change<- change(aldea_change, Var ='num_fem',
+                      NewVar = 'pct_change',
+                      slideBy = 1,
+                      type='percent')
+aldea_change
+
 
 ## Femicidios conjunto
 
@@ -220,7 +219,6 @@ fem_conjunto3 <-
 
 fem_conjunto3
 
-
 ## Denuncias Femicidios: Datos Fiscalía General del Estado
 
 fem_fiscalia_col <- ggplot(femicidios_fiscalia_yr, aes(x = as.character(anio), y = count))+
@@ -274,7 +272,7 @@ caption_fge_denuncias<- 'Se muestran las denuncias del delito de femicidio (art.
 la tasa de crecimiento anual de las mismas en el panel derecho. Los datos provienen de un pedido de información 
 realizado a la FGE (estadistica@fiscalia.gob.ec) por los autores, presentando las denuncias desde agosto de 2014
 hasta octubre de 2022. Se toman en cuenta el número de registros (filas) por año existentes en la base de datos, puesto que
-un mayor número de víctimas o de noticias de delito NDD no necesariamente comprende un mayor número de delitos o denuncias en sí.'
+un mayor número de víctimas o de noticias de delito (NDD) no necesariamente comprende un mayor número de delitos o denuncias en sí.'
 
 grafge2<-
   fem_fiscalia_col + fem_pchg +
@@ -309,7 +307,10 @@ muertes_violentas_col <-
        subtitle = 'Fuente: Registro Civil',
        fill = 'Sexo')+
   scale_fill_manual(values =  c('#334d9e',purple_women))+
-  theme_women
+  theme_women+
+  theme(legend.position = c(0.85,0.86),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
 
 muertes_violentas_col
 
