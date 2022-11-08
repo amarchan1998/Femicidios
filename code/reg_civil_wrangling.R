@@ -204,8 +204,8 @@ deaths_total_yearly_wom$year <- as.integer(deaths_total_yearly_wom$year)
 
 # Calculate a percent change
 
-deaths_total_yearly_wom<- deaths_total_yearly_wom %>% as.data.frame()
-
+deaths_total_yearly_wom <- 
+  deaths_total_yearly_wom %>% as.data.frame()
 
 muertes_muj<- change(deaths_total_yearly_wom, Var ='cant',
          NewVar = 'pct_change',
@@ -213,7 +213,6 @@ muertes_muj<- change(deaths_total_yearly_wom, Var ='cant',
          type='percent') %>% mutate(sexo = 'Mujer') 
 
 muertes_muj <- muertes_muj[-1,]
-
 
 # Filtrando solo para hombres
 
@@ -223,7 +222,6 @@ deaths_total_yearly_men <-
 
 deaths_total_yearly_men$cant <- as.integer(deaths_total_yearly_men$cant)
 deaths_total_yearly_men$year <- as.integer(deaths_total_yearly_men$year)
-
 
 # Calculate a percent change
 
@@ -242,7 +240,7 @@ muertes_hom <-muertes_hom[-1,]
 muertes_pc_total <- 
   bind_rows(muertes_muj,muertes_hom)
 
-# Realizar las muertes de mujeres como % del total
+# Realizar las muertes por genero como % del total
 
 muertes_fem_perc<-
   deaths_total_yearly_wom %>% 
@@ -250,8 +248,25 @@ muertes_fem_perc<-
   left_join(deaths_total_yearly_men, by = 'year') %>% 
   rename( 'men_cant' = cant ) %>% 
   mutate(total = men_cant + woman_cant,
-         woman_percent = (woman_cant/total)*100) 
-  
-  
+         percent = (woman_cant/total)*100,
+         sexo = 'mujer')
 
+muertes_masc_perc<-
+  deaths_total_yearly_wom %>% 
+  rename( 'woman_cant' = cant ) %>% 
+  left_join(deaths_total_yearly_men, by = 'year') %>% 
+  rename( 'men_cant' = cant ) %>% 
+  mutate(total = men_cant + woman_cant,
+         percent = (men_cant/total)*100,
+         sexo = 'men')
+  
+# Total:
+
+muertes_genero_perc<-
+  muertes_fem_perc %>% 
+  select(year, percent, sexo) %>%
+  bind_rows(
+    muertes_masc_perc %>% 
+      select(year, percent, sexo)
+  ) 
 

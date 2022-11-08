@@ -110,13 +110,13 @@ aldea_change
 
 # 3. REGISTRO CIVIL
 
-# Cargamos la base de REGISTRO CIVIL
+# Cargamos la base del Registro Civil
 
-reg_civil <- read_xlsx('data/deaths_wom.xlsx',
-                       col_names = c('año','cantidad'),
-                       skip = 1) %>% 
+source('code/reg_civil_wrangling.R')
+
+reg_civil <- 
+  deaths_total_yearly_wom %>% 
   mutate(fuente = 'Registro Civil')
-
 
 # Se construye la base conjunta
 
@@ -142,3 +142,4 @@ femicidios_conjunta3<-
   fge %>%
   bind_rows(aldea) %>% 
   filter(año %in% c(2014,2015,2016,2017,2018,2019,2020,2021,2022))
+

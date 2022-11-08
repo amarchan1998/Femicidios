@@ -61,8 +61,6 @@ De todas maneras, se utilizaron los datos enviados por la FGE para analizar el d
 
 Debido a estos problemas, decidimos acudir a fuentes externas a las instituciones mencionadas en el reporte oficial. En primer lugar, revisamos la información de defunciones generales de Registro Civil, disponible en el sitio web del [INEC](https://www.ecuadorencifras.gob.ec/defunciones-generales/#:~:text=En%20el%20a%C3%B1o%202021%20se,de%20la%20publicaci%C3%B3n%20es%20anual.). De esta fuente pudimos obtener el número de muertes violentas, en donde si es posible realizar una diferenciación a nivel de género. Sin embargo, el problema aquí es que no existe una categorización de muertes por delito, debido a que el Registro Civil no es una institución enfocada a lo legal. Lo mejor que se puede hacer es realizar una comparación de muertes violentas entre hombres y mujeres, en donde la cifra de muertes violentas de mujeres es comparable al total de muertes de mujeres en contexto delictivo que se puede ver en el primer gráfico. 
 
-
-
 No obstante, en el gráfico 3 decidimos incluir la información que nos da el Registro Civil sobre defunciones violentas de mujeres como femicidios. En este gráfico se puede observar que sólo tenemos esta información del año 2011 al 2020. Para el 2020, tenemos un número menor de femicidios en comparación a los años anteriores con un cambio porcentual negativo con respecto al 2019 de 19.75% y el año con una mayor cantidad de este tipo de incidentes es el 2012. Otra vez logramos determinar que los datos varían con respecto a las otras fuentes.
 
 ![](images/graf4-femicidios-aldea-01.png)

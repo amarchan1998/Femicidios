@@ -308,16 +308,39 @@ muertes_violentas_col <-
   scale_fill_manual(values =  c('#334d9e',purple_women))+
   geom_text(aes(label = cant),
             vjust = 1.5)+
-  geom_text(data = muertes_fem_perc,
-            aes(label = woman_perc),
-            color = 'white',
-            vjust = 1.5)
   theme_women+
   theme(legend.position = c(0.85,0.86),
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank())
 
 muertes_violentas_col
+
+# Muertes Violentas de Mujeres y Hombres como % del Total
+
+muertes_perc_mujer <-
+  muertes_genero_perc %>% 
+  filter(sexo == 'mujer') # Para solamente visualizar el % de mujeres sobre el total
+
+muertes_violentas_perclin <- 
+  ggplot(muertes_perc_mujer, 
+         aes(x = as.character(year), 
+             y = percent, 
+             group = 1))+
+  geom_line(color = purple_women)+
+  geom_point(color = 'black')+
+  labs(x = 'Año',
+       y = 'Número de muertes',
+       title = 'Muertes Violentas en Ecuador 2011-2020',
+       subtitle = 'Fuente: Registro Civil',
+       fill = 'Sexo')+
+  geom_text(aes(label = round(percent,2)),
+            vjust = 1)+
+  theme_women+
+  theme(legend.position = c(0.85,0.86),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
+
+muertes_violentas_perclin 
 
 ## Muertes Violentas Solo Mujeres
 ### Datos Registro Civil
