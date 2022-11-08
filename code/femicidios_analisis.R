@@ -307,9 +307,13 @@ muertes_violentas_col <-
        fill = 'Sexo')+
   scale_fill_manual(values =  c('#334d9e',purple_women))+
   geom_text(aes(label = cant),
-            vjust = 1.5)+
+            vjust = -0.5,
+            hjust = 1.1,
+            color = 'white',
+            angle = 90)+
   theme_women+
-  theme(legend.position = c(0.85,0.86),
+  theme(legend.position = c(0.82,0.95),
+        legend.direction = 'horizontal',
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank())
 
@@ -329,7 +333,7 @@ muertes_violentas_perclin <-
   geom_line(color = purple_women)+
   geom_point(color = 'black')+
   labs(x = 'Año',
-       y = 'Número de muertes',
+       y = 'Porcentaje (%) de muertes sobre el total',
        title = 'Muertes Violentas en Ecuador 2011-2020',
        subtitle = 'Fuente: Registro Civil',
        fill = 'Sexo')+
