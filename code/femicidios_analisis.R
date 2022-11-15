@@ -319,7 +319,10 @@ muertes_violentas_col <-
 
 muertes_violentas_col
 
-# Muertes Violentas de Mujeres y Hombres como % del Total
+# Muertes Violentas de Mujeres como % del Total
+
+caption_perc_muj<-'Se muestra el porcentaje de muertes violentas de mujeres como porcentaje (%) del total entre hombres y 
+mujeres reportadas por el Registro Civil (datos disponibles en el INEC).'
 
 muertes_perc_mujer <-
   muertes_genero_perc %>% 
@@ -336,10 +339,11 @@ muertes_violentas_perclin <-
        y = 'Porcentaje (%) de muertes sobre el total',
        title = 'Muertes Violentas en Ecuador 2011-2020',
        subtitle = 'Fuente: Registro Civil',
+       caption = str_wrap(caption_perc_muj, 160),
        fill = 'Sexo')+
   theme_women+
   theme(legend.position = c(0.85,0.86))
-
+  
 muertes_violentas_perclin 
 
 ggsave("images/graf3-inec-genero-comp.png", device = "png", width = 12.5, height = 7, dpi = 900)
@@ -383,4 +387,4 @@ muertes_pc_col_muj <-
   labs(color = "Sexo")+scale_color_manual(values =  c('#334d9e', purple_women))+
   theme_women
 
-  muertes_pc_col_muj
+muertes_pc_col_muj
