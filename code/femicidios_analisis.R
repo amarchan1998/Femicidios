@@ -290,7 +290,7 @@ grafge2<-
 
 grafge2
 
-ggsave("images/graf6-fge-comparacion.png", device = "png", width = 12.5, height = 7, dpi = 900)
+ggsave("images/graf2-fge-comparacion.png", device = "png", width = 12.5, height = 7, dpi = 900)
 
 ## Muertes Violentas Hombres vs Mujeres
 #### Datos Registro Civil
@@ -330,21 +330,19 @@ muertes_violentas_perclin <-
          aes(x = as.character(year), 
              y = percent, 
              group = 1))+
-  geom_line(color = purple_women)+
-  geom_point(color = 'black')+
+  geom_line(color = purple_women, size = 1)+
+  geom_point(color = 'black', size = 1.5)+
   labs(x = 'Año',
        y = 'Porcentaje (%) de muertes sobre el total',
        title = 'Muertes Violentas en Ecuador 2011-2020',
        subtitle = 'Fuente: Registro Civil',
        fill = 'Sexo')+
-  geom_text(aes(label = round(percent,2)),
-            vjust = 1)+
   theme_women+
-  theme(legend.position = c(0.85,0.86),
-        axis.text.y = element_blank(),
-        axis.ticks.y = element_blank())
+  theme(legend.position = c(0.85,0.86))
 
 muertes_violentas_perclin 
+
+ggsave("images/graf3-inec-genero-comp.png", device = "png", width = 12.5, height = 7, dpi = 900)
 
 ## Muertes Violentas Solo Mujeres
 ### Datos Registro Civil
