@@ -3,11 +3,11 @@ title: "Muertes Violentas de Mujeres en Ecuador"
 author: "Alejandra Marchán y Daniel Sánchez"
 date: "`r Sys.Date()`"
 output:
+  word_document: default
   html_document:
     df_print: paged
-  word_document: default
-bibliography: references.bib
 csl: apa_num.csl
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = F)
 knitr::include_graphics('../images/graf1-femicidios-vs-otros.png')
 ```
 
-En Ecuador existe un recuento de muertes violentas de mujeres desde agosto 2014, año en el que se tipificó el delito de femicidio en el COIP[^1] hasta finales de 2022, momento en el que los autores recuperaron los datos del [reporte](https://www.fiscalia.gob.ec/analitica-muertes-de-mujeres-en-contexto-delictivo/) presentado periódicamente por el Gobierno Nacional, mediante la Comisión Especial de Estadística de Seguridad, Justicia, Crimen y Transparencia[^2] [-@fiscalía]. La información recopilada del reporte se puede observar en el gráfico de arriba. Las cifras separan a las muertes de mujeres en dos categorías diferentes, siendo una los *femicidios*, un delito introducido en el COIP de 2014, artículo 141: "la persona que, como resultado de relaciones de poder manifestadas en cualquier tipo de violencia, de muerte a una mujer por el hecho de serlo o por su condición de género"[^3].
+En Ecuador existe un recuento de muertes violentas de mujeres desde agosto 2014, año en el que se tipificó el delito de femicidio en el COIP[^1] hasta finales de 2022, momento en el que los autores recuperaron los datos del [reporte](https://www.fiscalia.gob.ec/analitica-muertes-de-mujeres-en-contexto-delictivo/) presentado periódicamente por el Gobierno Nacional, mediante la Comisión Especial de Estadística de Seguridad, Justicia, Crimen y Transparencia[^2]. La información recopilada del reporte se puede observar en el gráfico de arriba. Las cifras separan a las muertes de mujeres en dos categorías diferentes, siendo una los *femicidios*, un delito introducido en el COIP de 2014, artículo 141: "la persona que, como resultado de relaciones de poder manifestadas en cualquier tipo de violencia, de muerte a una mujer por el hecho de serlo o por su condición de género"[^3].
 
 [^1]: Código Orgánico Integral Penal, el cuerpo de ley que regula el poder punitivo del estado ecuatoriano [\@códigoo].
 
@@ -29,13 +29,13 @@ En Ecuador existe un recuento de muertes violentas de mujeres desde agosto 2014,
 
 [^3]: Recuperado de la base metodológica del reporte oficial [-@fiscalía] (párr. 5).
 
-La minoría de muertes violentas de mujeres durante el período se categorizan como femicidios, quizás debido a la dificultad de la categorización de la misma. La definición del delito en el COIP sitúa al femicidio como un crimen de odio contra la mujer *por el hecho de serlo*, sin embargo, al ser dificultoso conocer con certeza los motivos verdaderos del criminal, los agentes de la ley se han centrado en aspectos conductuales y sentimentales de las víctimas y/o victimarios para poder sentenciar a los femicidas [-@fiscalía]. Por esta razón sería adecuado considerar que las cifras de femicidios reportados por el gobierno pueden estar considerablemente subestimadas. Sería natural observar las cifras de muertes violentas de mujeres que no han sido categorizados como femicidios para poder superar esa subestimación.
+La minoría de muertes violentas de mujeres durante el período se categorizan como femicidios, quizás debido a la dificultad de la categorización de la misma. La definición del delito en el COIP sitúa al femicidio como un crimen de odio contra la mujer *por el hecho de serlo*, sin embargo, al ser dificultoso conocer con certeza los motivos verdaderos del criminal, los agentes de la ley se han centrado en aspectos conductuales y sentimentales de las víctimas y/o victimarios para poder sentenciar a los femicidas[-@fiscalía]. Por esta razón sería adecuado considerar que las cifras de femicidios reportados por el gobierno pueden estar considerablemente subestimadas. Sería natural observar las cifras de muertes violentas de mujeres que no han sido categorizados como femicidios para poder superar esa subestimación.
 
 Este gráfico también contempla las cifras de muertes de mujeres en contexto delictivo en categorías ajenas al femicidio. Se incluye aquellas muertes de mujeres por "homicidios intencionales"[^4], asesinato, sicariato, robo, ejecución extrajudicial, secuestro extorsivo, abandono de persona, violación, acto de odio, abigeato, extralimitación en un acto de servicio, entre otros. Bajo esta aclaración, sería posible llegar a la conclusión que dada la dificultad de la sentencia de un femicidio, buena parte de los *femicidios reales* podrían estar contenidos dentro de esta cifra, pero no podemos saber en qué proporción.
 
-[^4]: Según el reporte del Gobierno, se considera un homicidio intencional a "la muerte ilícita causada a una persona con la intención de causarle la muerte o lesiones graves"[@analític2022].
+[^4]: Según el reporte del Gobierno, se considera un homicidio intencional a "la muerte ilícita causada a una persona con la intención de causarle la muerte o lesiones graves" [@analític2022]
 
-Un hecho notable es que el año 2022, sin haberse terminado aún, presenta un notable aumento en muertes violentas de mujeres respecto al 2021 y es, de hecho, el año con mayor número de muertes para el que se cuenta con información. Esto podría sugerir que el 2022 ha sido un año especialmente violento para las mujeres. Respecto al 2021, el 2022 presenta alrededor de un 20% más del total de muertes violentas para el año anterior. Este preocupante hallazgo preliminar abre el camino hacia varias preguntas necesarias para caracterizar este incremento, preguntas que son difíciles de responder en la manera en la que se manejan los datos sobre violencia de género en el Ecuador. ¿Existió realmente un aumento en los delitos de odio hacia la mujer? ¿Tiene algo que ver la ola de violencia[@homicidi2021] relacionada al narcotráfico con este aumento?, pero más que nada, ¿de dónde provienen los datos y se puede asegurar su veracidad?
+Un hecho notable es que el año 2022, sin haberse terminado aún, presenta un notable aumento en muertes violentas de mujeres respecto al 2021 y es, de hecho, el año con mayor número de muertes para el que se cuenta con información. Esto podría sugerir que el 2022 ha sido un año especialmente violento para las mujeres. Respecto al 2021, el 2022 presenta alrededor de un 20% más del total de muertes violentas para el año anterior. Este preocupante hallazgo preliminar abre el camino hacia varias preguntas necesarias para caracterizar este incremento, preguntas que son difíciles de responder en la manera en la que se manejan los datos sobre violencia de género en el Ecuador. ¿Existió realmente un aumento en los delitos de odio hacia la mujer? ¿Tiene algo que ver la ola de violencia [@homicidi2021] relacionada al narcotráfico con este aumento?, pero más que nada, ¿de dónde provienen los datos y se puede asegurar su veracidad?
 
 Eventualmente, si bien algunas de estas preguntas las pudimos responder parcialmente, las conclusiones que pudimos obtener solo dan paso a más preguntas sobre la manera en la que el Ecuador maneja la información sobre delitos violentos y cómo se la utiliza (si ha alguna vez se lo ha hecho) para generar política pública.
 
@@ -71,12 +71,9 @@ knitr::include_graphics('../images/graf3-inec-genero-comp.png')
 
 Con el objetivo de tener información de una fuente que no esté controlada o dirigida por el Estado, tomamos en cuenta los datos recopilados por la Asociación Latinoamericana para el Desarrollo Alternativo (ALDEA), una fundación sin fines de lucro con enfoque social y especializada en *cartografía espacial y social del Ecuador* que recientemente ha estado reportando [cifras](http://www.fundacionaldea.org/mapas) de *femi(ni)cidios*[^7] en el país. Un [reporte interactivo](http://80.241.217.8/mapas_estadisticos/femi_pro/#) de ALDEA describe de forma general la metodología de los datos
 
-<<<<<<< HEAD
-[^7]: En general, el término feminicidio es diferente al femicido debido a que el primero abarca un sentido político en contra del gobierno de turno por la falta del mismo ante el asesinato de una mujer por el hecho de ser mujer, es decir, el feminicidio acarrea el concepto de la impunidad que un Estado desatento genera[@panamá][\@¿sonlo2022].
-=======
+[^7]: En general, el término feminicidio es diferente al femicido debido a que el primero abarca un sentido político en contra del gobierno de turno por la falta del mismo ante el asesinato de una mujer por el hecho de ser mujer, es decir, el feminicidio acarrea el concepto de la impunidad que un Estado desatento genera [@panamá]
 
 De acuerdo a estos datos como se puede ver en el gráfico 4, el año 2022 ha sido el que más femicidios ha presentado con un cambio porcentual de 5.58% en comparación al 2021. Cabe recalcar que ALDEA dentro de los femicidios también considera muerte de mujeres por delincuencia organizada y transfemicidios, los cuales hacen referencia al asesinato de hombres que se identifcan con el género femenino (mujeres trans). Las otras instituciones que poseen datos de femicidios en Ecuador no abarcan o al menos no detallan que este tipo de delito (transmeficidio) esté dentro de lo que clasifican como "femicidios". Por esto se esperaría que el número de femicidios presentado por ALDEA sea mayor al de las otras instituciones. Sin embargo al considerar defunciones de mujeres en general como se puede observar en el gráfico 5, ALDEA tiene un menor número de tipo de muerte clasificada como femicidio.
->>>>>>> 43ea0008ccb091662b173ae1c65144ed5d53883f
 
 # El Problema de Rendición de Cuentas ?
 
