@@ -138,14 +138,6 @@ fem_aldea_col <- ggplot(fem_aldea, aes(x = as.character(año), y = num_fem))+
 
 fem_aldea_col
 
-# Guardar la imagen
-
-png("images/graf4-femicidios-aldea.png", width = 900, height = 650, unit = 'px')
-
-fem_aldea_col
-
-dev.off()
-
 # Sacamos el porcentaje de cambio para estos datos
 
 aldea_change<- fem_aldea %>% as.data.frame()
@@ -166,7 +158,6 @@ fem_conjunto <-
   labs(x = 'Año',
        y = 'Número de femicidios',
        title = 'Femicidios en Ecuador 2014-2022',
-       subtitle = 'Comparación entre fuentes Fundación ALDEA, Fiscalía General y Registro Civil',
        fill = 'Fuente')+
   scale_fill_manual(values =  c(purple_women, purple_women2, purple_women3))+
   theme_women+
@@ -175,14 +166,6 @@ fem_conjunto <-
                    axis.ticks.y = element_blank())
 
 fem_conjunto
-
-## Guardo imagen
-
-png("images/graf5-femicidios-compar.png", width = 900, height = 650, unit = 'px')
-
-fem_conjunto
-
-dev.off()
 
 ## Femicidios conjunto (solo fuentes con mismos años)
 
@@ -197,7 +180,12 @@ fem_conjunto2 <-
        subtitle = 'Comparación entre fuentes Fundación ALDEA, Fiscalía General y Registro Civil',
        fill = 'Fuente')+
   scale_fill_manual(values =  c(purple_women, purple_women2, purple_women3))+
-  theme_women
+  theme_women+
+  theme(legend.position = c(0.08,0.85),
+        legend.direction = 'horizontal',
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
+
 
 fem_conjunto2
 

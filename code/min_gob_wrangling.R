@@ -116,7 +116,9 @@ source('code/reg_civil_wrangling.R')
 
 reg_civil <- 
   deaths_total_yearly_wom %>% 
-  mutate(fuente = 'Registro Civil')
+  mutate(fuente = 'Registro Civil') %>% 
+  rename('año' = year,
+         'cantidad' = cant)
 
 # Se construye la base conjunta
 
@@ -127,13 +129,14 @@ femicidios_conjunta<-
 
 # Filtro años que necesito
 
-femicidios_conjunta <- femicidios_conjunta %>% 
+femicidios_conjunta <- 
+  femicidios_conjunta %>% 
   filter(año %in% c(2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022))
-
 
 # Filtro 2014-2020 donde tengo datos para las tres fuentes
 
-femicidios_conjunta2 <- femicidios_conjunta %>% 
+femicidios_conjunta2 <- 
+  femicidios_conjunta %>% 
   filter(año %in% c(2014,2015,2016,2017,2018,2019,2020))
 
 # Solo Aldea y FGE
