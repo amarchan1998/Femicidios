@@ -137,7 +137,7 @@ femicidios_conjunta <-
 
 femicidios_conjunta2 <- 
   femicidios_conjunta %>% 
-  filter(año %in% c(2014,2015,2016,2017,2018,2019,2020))
+  filter(año %in% c(2014,2015,2016,2017,2018,2019,2020,2021))
 
 # Solo Aldea y FGE
 

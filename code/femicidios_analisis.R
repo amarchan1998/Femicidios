@@ -167,45 +167,6 @@ fem_conjunto <-
 
 fem_conjunto
 
-## Femicidios conjunto (solo fuentes con mismos años)
-
-fem_conjunto2 <- 
-  ggplot(femicidios_conjunta2, aes(x = as.character(año), y = cantidad, fill = fuente))+
-  geom_col(width = 0.7,
-           color = 'black',
-           position = 'dodge')+
-  labs(x = 'Año',
-       y = 'Número de femicidios',
-       title = 'Femicidios en Ecuador 2014-2020',
-       subtitle = 'Comparación entre fuentes Fundación ALDEA, Fiscalía General y Registro Civil',
-       fill = 'Fuente')+
-  scale_fill_manual(values =  c(purple_women, purple_women2, purple_women3))+
-  theme_women+
-  theme(legend.position = c(0.08,0.85),
-        legend.direction = 'horizontal',
-        axis.text.y = element_blank(),
-        axis.ticks.y = element_blank())
-
-
-fem_conjunto2
-
-## Femicidios conjunto (solo fuentes con mismos años Aldea y FGE)
-
-fem_conjunto3 <- 
-  ggplot(femicidios_conjunta3, aes(x = as.character(año), y = cantidad, fill = fuente))+
-  geom_col(width = 0.7,
-           color = 'black',
-           position = 'dodge')+
-  labs(x = 'Año',
-       y = 'Número de femicidios',
-       title = 'Femicidios en Ecuador 2014-2022',
-       subtitle = 'Comparación entre fuentes Fundación ALDEA y Fiscalía General',
-       fill = 'Fuente')+
-  scale_fill_manual(values =  c(purple_women, purple_women2))+
-  theme_women
-
-fem_conjunto3
-
 ## Denuncias Femicidios: Datos Fiscalía General del Estado
 
 fem_fiscalia_col <- ggplot(femicidios_fiscalia_yr, aes(x = as.character(anio), y = count))+
@@ -376,3 +337,50 @@ muertes_pc_col_muj <-
   theme_women
 
 muertes_pc_col_muj
+
+## Femicidios conjunto (solo fuentes con mismos años)
+
+caption_grafo4<-'Nota: se presentan datos de muertes violentas de mujeres de diversas fuentes del Ecuador en los
+períodos para los que existen disponibilidad de datos. Los datos del Registro Civil (disponibles en el INEC) contienen todas las muertes categorizadas
+como muertes violentas y las muertes violentas de la FGE provienen de un reporte oficial del
+la Comisión Especial de Estadística de Seguridad, Justicia, Crimen y Transparencia. Los datos de la Fundación ALDEA constituyen un
+indicador alternativo de los femicidios. Estos fueron recogidos por los autores del reporte interactivo de ALDEA y no son necesariamente comparables cada año por problemas metodológicos.'
+
+fem_conjunto2 <- 
+  ggplot(femicidios_conjunta2, aes(x = as.character(año), y = cantidad, fill = fuente))+
+  geom_col(width = 0.7,
+           color = 'black',
+           position = 'dodge')+
+  labs(x = 'Año',
+       y = 'Número de femicidios',
+       title = 'Muertes Violentas de Mujeres/Femicidios en Ecuador 2014-2021',
+       subtitle = 'Comparación entre fuentes Fundación ALDEA, Fiscalía General (FGE) y Registro Civil',
+       fill = 'Fuente',
+       caption = str_wrap(caption_grafo4, 160))+
+  scale_fill_manual(values =  c(purple_women, purple_women2, purple_women3))+
+  scale_y_continuous(breaks = seq(0,600,50))+
+  theme_women+
+  theme(legend.position = c(0.18,0.9),
+        legend.direction = 'horizontal')
+
+fem_conjunto2
+
+ggsave("images/graf4-comparacion.png", device = "png", width = 12.5, height = 7, dpi = 900)
+
+## Femicidios conjunto (solo fuentes con mismos años Aldea y FGE)
+
+fem_conjunto3 <- 
+  ggplot(femicidios_conjunta3, aes(x = as.character(año), y = cantidad, fill = fuente))+
+  geom_col(width = 0.7,
+           color = 'black',
+           position = 'dodge')+
+  labs(x = 'Año',
+       y = 'Número de femicidios',
+       title = 'Femicidios en Ecuador 2014-2022',
+       subtitle = 'Comparación entre fuentes Fundación ALDEA y Fiscalía General',
+       fill = 'Fuente')+
+  scale_fill_manual(values =  c(purple_women, purple_women2))+
+  theme_women
+
+fem_conjunto3
+
