@@ -15,11 +15,11 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = F)
 ```
 
-```{r femicidios-completo-reporte}
-knitr::include_graphics('../images/graf1-femicidios-vs-otros.png')
-```
+*El 2022 finaliza como uno de los años más violentos en la historia del Ecuador, y, según cifras oficiales, éste también ha sido el año más violento para las mujeres, registrando 273 femicidios y sobrepasando considerablemente al anterior año con más femicidios: 2017 con 100 femicidios. Surge una pregunta clave pero complicada: ¿como se reconocen los femicidios y como esto afecta la confiabilidad de la estadística oficial? En este artículo, los autores presentan una investigación preliminar sobre lo que sucede tras bastidores de la estadística oficial presentada por el gobierno ecuatoriano. Identificamos tres problemas claves que interactúan entre si para imposibilitar un análisis cuantitativo adecuado de las muertes violentas de mujeres en el país.*
 
-En Ecuador existe un recuento de muertes violentas de mujeres desde agosto 2014, año en el que se tipificó el delito de femicidio en el COIP[^1] hasta finales de 2022, momento en el que los autores recuperaron los datos del [reporte](https://www.fiscalia.gob.ec/analitica-muertes-de-mujeres-en-contexto-delictivo/) presentado periódicamente por el Gobierno Nacional, mediante la Comisión Especial de Estadística de Seguridad, Justicia, Crimen y Transparencia[^2]. Las cifras separan a las muertes de mujeres en dos categorías diferentes. Una es el femicidio que se define cuando "una persona que, como resultado de relaciones de poder manifestadas en cualquier tipo de violencia, da muerte a una mujer por el hecho de serlo o por su condición de género"[^3].
+# El Problema Estadístico y Organizacional
+
+En Ecuador se registran las muertes violentas de mujeres desde agosto 2014, año en el que se tipificó el delito de femicidio en el COIP[^1] hasta finales de 2022, momento en el que los autores recuperaron los datos del [reporte](https://www.fiscalia.gob.ec/analitica-muertes-de-mujeres-en-contexto-delictivo/) oficial presentado periódicamente por el Gobierno Nacional, mediante la Comisión Especial de Estadística de Seguridad, Justicia, Crimen y Transparencia[^2]. Las cifras separan a las muertes de mujeres en dos categorías diferentes. Una es el femicidio: "una persona que, como resultado de relaciones de poder manifestadas en cualquier tipo de violencia, da muerte a una mujer por el hecho de serlo o por su condición de género"[^3].
 
 [^1]: Código Orgánico Integral Penal, el cuerpo de ley que regula el poder punitivo del estado ecuatoriano [\@códigoo].
 
@@ -27,56 +27,48 @@ En Ecuador existe un recuento de muertes violentas de mujeres desde agosto 2014,
 
 [^3]: COIP, art. 141. Recuperado de la base metodológica del reporte oficial [-@fiscalía] (párr. 5).
 
-La minoría de muertes violentas de mujeres durante el período se clasifican como femicidios, quizás debido a la dificultad de la categorización de la misma. La definición del delito en el COIP sitúa al femicidio como un crimen de odio contra la mujer *por el hecho de serlo*, sin embargo, al ser dificultoso conocer los motivos del criminal, los agentes de la ley se han centrado en aspectos conductuales para poder sentenciar a los femicidas[-@fiscalía]. La segunda categoría del reporte oficial, contiene muertes violentas que no se sentenciaron como femicidio, incluyendo aquellas muertes de mujeres por "homicidios intencionales"[^4], asesinato, sicariato, robo, ejecución extrajudicial, entre otros. Bajo esta aclaración, sería posible pensar que dada la dificultad de sentenciar un femicidio, buena parte de los *femicidios reales* podría estar dentro de esta cifra, pero no se conoce en que proporción.
+```{r femicidios-completo-reporte}
+knitr::include_graphics('../images/graf1-femicidios-vs-otros.png')
+```
+
+La minoría de muertes violentas de mujeres durante el período se clasifican como femicidios, quizás debido a la dificultad de identificación que este delito tiene. El COIP sitúa al femicidio como un crimen de odio contra la mujer *por el hecho de serlo*, sin embargo, al ser dificultoso conocer los motivos del criminal, los agentes de la ley se han centrado en aspectos conductuales para poder sentenciar a los femicidas[-@fiscalía]. La segunda categoría del reporte oficial contiene muertes violentas que no se sentenciaron como femicidio, incluyendo aquellas muertes de mujeres por "homicidios intencionales"[^4]. Bajo esta aclaración, sería posible pensar que dada la dificultad de sentenciar un femicidio, buena parte de los *femicidios reales* podría estar dentro de esta cifra, pero no se conoce en que proporción.
 
 [^4]: Según el reporte del Gobierno, se considera un homicidio intencional a "la muerte ilícita causada a una persona con la intención de causarle la muerte o lesiones graves" [@analític2022]
 
-Se puede observar que las muertes violentas aumentaron significativamente en el 2022, lo que abre el camino hacia las siguientes preguntas:
+El reporte oficial no brinda acceso a los datos ni a un documento metodológico. Lo que se logró conocer es que el aumento en muertes se debió a muertes que *no* son femicidios, pero se requiere más información para saber esto. Se redirecciona al [sitio web de estadística](https://www.fiscalia.gob.ec/estadisticas-fge/) de la Fiscalía General del Estado (FGE) en el reporte oficial[^5], de donde se determinó lo siguiente:
 
--   ¿Existió realmente un aumento en los delitos de odio hacia la mujer, o el aumento se debe a otros delitos?
+[^5]: El sitio web de la FGE no proporciona acceso a los datos. Los autores realizamos un pedido de información al correo electrónico proporcionado por la FGE, estadistica\@fiscalia.gob.com, para los delitos de Femicidio (Art. 141), Homicidio (Art. 144), Asesinato (Art. 140), Sicariato (Art. 143) y Violación (Art. 171).
 
--   ¿Tiene algo que ver la ola de violencia [@homicidi2021] relacionada al narcotráfico con este aumento?
+-   La base proporcionada por la FGE está nivel de denuncias, por lo que no existe una manera de replicar los cálculos de femicidios que la FGE y el reporte oficial presenta.
 
--   ¿De dónde provienen los datos y se puede asegurar su veracidad?
+-   Se menciona que *en algunos casos las víctimas no son identificadas o son desconocidas y por tanto la variable tiene subregistro.*[^6], por lo que aparentemente incluso la FGE desconoce como se generan cifras de femicidios. 
 
-Las respuestas que pudimos obtener solo dieron paso a más preguntas sobre la manera en las que se maneja la información sobre delitos de género. Identificamos tres problemas clave que interactúan entre sí para imposibilitar un análisis cuantitativo adecuado de las muertes violentas de mujeres en el país.
+-   La base no es suficiente para replicar el reporte oficial debido a que los datos están esparcidos en diferentes instituciones públicas[^7] y no todas proporcionan información al público.
 
-# El Problema Estadístico y Organizacional
-
-El reporte oficial no brinda acceso a los datos ni a un documento metodológico. Lo que se logró conocer es que el aumento en muertes se debió a muertes que *no* son femicidios. Podría sugerirse que la ola de violencia reciente del Ecuador haya influenciado el aumento, pero esto requeriría una exploración exhaustiva de los datos que construyen el reporte oficial. Éste redirecciona al [sitio web de estadísticas](https://www.fiscalia.gob.ec/estadisticas-fge/) de la Fiscalía General del Estado (FGE). Desafortunadamente, no se provee acceso a los datos, pero mediante un pedido de información[^5] logramos obtener una base de datos adicional. De esto, se logró determinar lo siguiente:
-
-[^5]: Los autores realizamos un pedido de información al correo electrónico proporcionado por la FGE, estadistica\@fiscalia.gob.com, para los delitos de Femicidio (Art. 141), Homicidio (Art. 144), Asesinato (Art. 140), Sicariato (Art. 143) y Violación (Art. 171).
-
--   La base está nivel de denuncias, por lo que no existe una manera de calcular las estadísticas presentadas, que están a nivel de víctima.
-
--   Se menciona que *en algunos casos las víctimas no son identificadas o son desconocidas y por tanto la variable tiene subregistro.*[^6]
-
--   La base aparentemente no es suficiente para replicar el reporte oficial debido a que los datos están esparcidos en diferentes instituciones públicas[^7], de las cuales no todas tienen formas de proporcionar información al público.
+A continuación, se grafican los datos de denuncias proporcionados por la FGE.
 
 [^6]: Esta es la nota que se incluye en la base de datos original de la FGE, disponible en el repositorio de GitHub de este artículo.
 
 [^7]: Los analistas de la FGE mencionaron que *se debe observar que la Fiscalía dispone de información de gestión procesal de la justicia. El tema de sentencias corresponde a la Judicatura. Es más, para determinar propiamente al sujeto como víctima o victimario se debe considerar las sentencias.* Esto lleva a entender que la información que la FGE está dispuesta a proporcionar no es suficiente para generar las visualizaciones que ellos presentan (y de acuerdo a sus documentos, que también elaboran). El Consejo de la Judicatura no consta con un correo electrónico para realizar pedidos de información.
 
-A continuación, se grafican los datos de denuncias que nos proporcionó la FGE:
-
 ```{r grafico-denuncias-fge}
 knitr::include_graphics('../images/graf2-fge-comparacion.png')
 ```
 
-Como se esperaría con un delito tipificado recientemente, el número de denuncias aumentó de forma inmediata. Se tiene una tasa de crecimiento considerable después de la introducción del delito, lo que probablemente corresponde a denuncias de femicidios que *no* sucedieron durante ese mismo año. Esto genera dos problemas diferentes para nuestros propósitos:
+Como se esperaría con un delito tipificado recientemente, el número de denuncias aumentó de forma inmediata después de tipificarse en el COIP. En 2015 tuvo el pico de denuncias, lo que no coincide con el número de víctimas de femicidio reportadas por el Gobierno. Se tiene una tasa de crecimiento considerable después de la introducción del delito, lo que probablemente corresponde a denuncias de femicidios que *no* sucedieron durante ese mismo año. Esto genera dos problemas diferentes para nuestros propósitos:
 
 1.  El número de denuncias dentro de un año puede ser de crímenes cometidos en años anteriores.
-2.  Existe un gran número de crímenes que jamas se llegan a denunciar.
+2.  Existe un gran número de crímenes que jamás se llegan a denunciar.
 
-Este problema es complicado de resolver, y no conocemos como la FGE lo resolvió para la generación de las cifras del reporte oficial, sin incluso conocer como se hace la relación denuncia-víctima.
+Este problema es complicado de resolver, y no conocemos como la FGE lo resolvió para la generación de las cifras del reporte oficial, sin nisiquiera conocer o revelar la relación denuncia-víctima.
 
-Dos otras instituciones públicas ofrecen datos. Una es el Ministerio de Gobierno, donde se determinó que sus [cifras de femicidios](http://cifras.ministeriodegobierno.gob.ec/comisioncifras/inicio.php) coinciden con las del reporte oficial. Sin embargo, esta institución dejó de diferenciar delitos por género desde 2014. Otra fuente fueron las defunciones generales del Registro Civil, disponibles en el [INEC](https://www.ecuadorencifras.gob.ec/defunciones-generales/#:~:text=En%20el%20a%C3%B1o%202021%20se,de%20la%20publicaci%C3%B3n%20es%20anual.). Se pudo obtener el número de muertes violentas, en donde sí es posible realizar una diferenciación a nivel de género. Sin embargo, no existe una categorización de muertes por delito, al no ser el Registro Civil una institución enfocada en lo legal.
-
-Es posible realizar una comparación de muertes violentas entre hombres y mujeres, en donde la cifra de muertes violentas de mujeres es comparable al total que se puede ver en el primer gráfico. A continuación, graficamos el porcentaje de muertes violentas de mujeres como porcentaje del total (hombres + mujeres). Se puede observar que las muertes de mujeres llegaron a su pico durante el 2017 y desde ese año han caído considerablemente; de hecho se encuentran en su punto más bajo en 2022.
+Dos otras instituciones públicas ofrecen información. Una es el Ministerio de Gobierno, donde se determinó que sus [cifras de femicidios](http://cifras.ministeriodegobierno.gob.ec/comisioncifras/inicio.php) coinciden con las del reporte oficial. Sin embargo, esta institución dejó de diferenciar delitos por género desde 2014. Otra fuente fueron las defunciones generales del Registro Civil, disponibles en el [INEC](https://www.ecuadorencifras.gob.ec/defunciones-generales/#:~:text=En%20el%20a%C3%B1o%202021%20se,de%20la%20publicaci%C3%B3n%20es%20anual.). Se pudo obtener el número de muertes violentas, en donde sí es posible realizar una diferenciación a nivel de género. Sin embargo, no existe una categorización de muertes por delito.
 
 ```{r grafico-inec-genero}
 knitr::include_graphics('../images/graf3-inec-genero-comp.png')
 ```
+
+Es posible realizar una comparación de muertes violentas entre hombres y mujeres, en donde la cifra de muertes violentas de mujeres es comparable al total que se puede ver en el primer gráfico. En el gráfico anterior se  observa el porcentaje de muertes violentas de mujeres como porcentaje del total (hombres + mujeres). Las muertes violentas de mujeres según el INEC llegaron a su pico durante el 2017 y desde ese año han caíd considerablemente; de hecho se encuentran en su punto más bajo en 2022. Sin embargo, al no tener una desagregación por delito, los datos no se puden comparar con la cifra de femicidios presentada.
 
 # El Problema de los Datos de la Sociedad Civil
 
@@ -84,7 +76,7 @@ Con el objetivo de tener información de una fuente no gubernamental, tomamos en
 
 [^8]: En general, el término feminicidio es diferente al femicidio debido a que el primero abarca un sentido político en contra del gobierno por la falta de acción ante el asesinato de una mujer *por el hecho de ser mujer*, es decir, el feminicidio acarrea el concepto de la impunidad que un Estado desatento genera [@panamá].
 
-[@zambrano2022] realizan una revisión sistemática de esta información, quienes mencionan que los datos de ALDEA son consecuentes con el [Modelo de protocolo latinoamericano de investigación de la muerte violenta de mujeres por razones de género, femicidio/feminicidio](https://www.unwomen.org/es/digital-library/publications/2014/8/modelo-de-protocolo-latinoamericano#:~:text=El%20Modelo%20de%20Protocolo%20latinoamericano,la%20violencia%20contra%20las%20mujeres.)[^9]. Particularmente, se señala que se consideran asesinatos de mujeres en contexto de narcotráfico. Esto representa un problema para comparar esta fuente con los femicidios reportados por el gobierno, puesto que los casos contra femicidas suelen construirse en casos de relaciones sentimentales tornadas violentas, y no en casos de delincuencia organizada. Esto hace que necesariamente el indicador de ALDEA sea *siempre* superior al indicador del reporte oficial del gobierno. En el gráfico siguiente comparamos los datos de ALDEA con las muertes violentas (totales) del reporte oficial (abreviado como FGE) y con los datos del Registro Civil.
+Zambrano et al. [@zambrano2022] realizan una revisión sistemática de esta información, en donde se menciona que los datos de ALDEA son consecuentes con el [Modelo de protocolo latinoamericano de investigación de la muerte violenta de mujeres por razones de género, femicidio/feminicidio](https://www.unwomen.org/es/digital-library/publications/2014/8/modelo-de-protocolo-latinoamericano#:~:text=El%20Modelo%20de%20Protocolo%20latinoamericano,la%20violencia%20contra%20las%20mujeres.)[^9]. Particularmente, se señala que se consideran asesinatos de mujeres en contexto de narcotráfico. Esto representa un problema para comparar esta fuente con los femicidios reportados por el gobierno, puesto que los casos contra femicidas suelen construirse en casos de relaciones sentimentales tornadas violentas, y no en casos de delincuencia organizada. Esto hace que necesariamente el indicador de ALDEA sea *siempre* superior al indicador del reporte oficial del gobierno. En el gráfico siguiente comparamos los datos de ALDEA con las muertes violentas (totales) del reporte oficial (abreviado como FGE) y con los datos del Registro Civil.
 
 [^9]: Este documento, publicado en 2014, dió paso a la investigación penal del delito de femicidio, lo que habría permitido al estado ecuatoriano tipificar el mismo en agosto del mismo año.
 
@@ -92,9 +84,9 @@ Con el objetivo de tener información de una fuente no gubernamental, tomamos en
 knitr::include_graphics('../images/graf4-comparacion.png')
 ```
 
-Existe un problema adicional con este indicador: en 2021 se incluyeron los asesinatos de mujeres por sicariato [@zambrano2022], lo que no coincide con el femicidio según la legislación ecuatoriana. El aumento de 2020 a 2021 es artificial por esto, puesto a que antes ALDEA no había tomaba sicariatos en cuenta. Por ende, no se puede esperar que este indicador sea comparable al femicidio tipificado, sino más bien al total de muertes violentas. En este caso, el indicador de ALDEA subestima las muertes violentas de mujeres, sin embargo, debido a que el indicador es inestable a través de los años, no se puede asegurar la comparabilidad año a año de esta cifra.
+Existe un problema adicional con este indicador: en 2021 se incluyeron los asesinatos de mujeres por sicariato [@zambrano2022], lo que no coincide con el femicidio según la legislación ecuatoriana. El aumento de 2020 a 2021 es entonces artificial puesto a que antes ALDEA no había tomaba sicariatos en cuenta. Por ende, no se puede esperar que este indicador sea comparable al femicidio oficial, sino más bien al total de muertes violentas. En este caso, el indicador de ALDEA está subestimado.
 
-Nos contactamos con la fundación ALDEA para solicitar acceso directo a sus datos, pero nuestra solicitud no fue aprobada por la organización[^10]. Esto dificulta la tarea de analizar el aumento de femicidios en el 2022. Sin embargo, debido a la inclusión de los sicariatos y muertes en contexto de delincuencia organizada en este indicador, se podría argumentar que los femicidios han aumentado debido al incremento generalizado de la violencia en el Ecuador de los últimos dos años, tal y cómo nos permiten ver los datos del reporte oficial.
+Nos contactamos con la fundación ALDEA para solicitar acceso a sus datos, pero nuestra solicitud no fue aprobada por la organización[^10]. Esto dificulta la tarea de analizar el aumento de femicidios que ALDEA reporta para 2022. Sin embargo, debido a la inclusión de los sicariatos y muertes en contexto de delincuencia organizada en este indicador, se podría argumentar que los femicidios han aumentado debido al incremento generalizado de la violencia en el Ecuador de los últimos dos años. 
 
 [^10]: Un responsable de la organización citó que los datos no se suelen revelar **nunca** a externos debido a preocupaciones de seguridad.
 
@@ -114,11 +106,11 @@ Hasta el momento, el presente análisis de los datos existentes de muertes viole
 
 -   No es posible determinar si es que el 2022 es definitivamente un año particularmente violento hacia las mujeres o hacia todos los ecuatorianos en general: es posible que el aumento sostenido de la violencia en general de los últimos dos años haya causado el aumento, pero no podemos estar seguros sin un mejor acceso a los datos.
 
-La falta de seriedad en la publicación de datos y en el mantenimiento de bases de datos abiertas evidencian un problema grave: el problema de rendición de cuentas, en donde las instituciones estatales muestran poco o ningún incentivo de demostrar al público lo que se investiga y sobre lo que se pretende hacer justicia. La sociedad civil lleva algunos pasos por delante, pero debemos caminar hacia el acceso abierto de datos si se pretende realmente llegar a un ambiente de libre intercambio de información para formular una mejor política pública.
+Una reducida publicación de datos y problemas en el mantenimiento de bases de datos abiertas evidencian un problema grave: el problema de rendición de cuentas, en donde las instituciones estatales muestran poco o ningún incentivo de demostrar al público lo que se investiga y sobre lo que se pretende hacer justicia. La sociedad civil lleva algunos pasos por delante, pero debemos caminar hacia el acceso abierto de datos si se pretende realmente llegar a un ambiente de libre intercambio de información para formular una mejor política pública.
 
-La *mediocridad cuantitativa* del Estado ecuatoriano no es más que una consecuencia de la gigantesca dificultad que existe en navegar el coloso estatal que existido desde tiempos inmemorables, por lo que no se puede culpar a un gobierno u otro de su existencia[^11], sino más bien empezar a preguntarse cómo solucionar el problema. Algunas de las maneras en las que podríamos mejorar el intercambio de datos son:
+Las debilidades cuantitativas del Estado ecuatoriano no son más que una consecuencia de la gigantesca dificultad que existe en navegar el coloso estatal que existido desde tiempos inmemorables, por lo que no se puede culpar a un gobierno u otro de su existencia[^11], sino más bien empezar a preguntarse cómo solucionar el problema. Algunas de las maneras en las que podríamos mejorar el intercambio de datos son:
 
-[^11]: Véase [@adoum2000].
+[^11]: Véase Adoum[@adoum2000].
 
 -   Fomentar la elaboración de documentos metodológicos extensos y claros para poder justificar la validez de lo presentado. Esto asegura transparencia y ahorra tiempo al usuario, quien probablemente no tiene la misma experiencia de quienes elaboran los reportes.
 
@@ -128,4 +120,9 @@ La *mediocridad cuantitativa* del Estado ecuatoriano no es más que una consecue
 
 -   Una integración institucional adecuada del sector público que sea visible y útil para los usuarios. La necesidad de navegar a través de diferentes ministerios, secretarias y consejos para conseguir una simple explicación es tediosa e infactible al largo plazo. El [Banco de Datos Abiertos](https://www.datosabiertos.gob.ec/) es un intento de esta integración, pero aun requiere mucho trabajo.
 
-Implementar estas prácticas en el sector publico y sociedad civil significarían un importante paso hacia un sistema fiable y abierto de datos para el Ecuador. Sin un sistema que funcione así, no existirán mecanismos de rendición de cuentas en donde las instituciones públicas encargadas de mantener la paz y/o perseguir la justicia justifiquen su razón de existir y donde los tomadores de decisiones puedan crear política basada en información científica.
+Implementar estas prácticas en el sector publico y sociedad civil significarían un importante paso hacia un sistema fiable y abierto de datos. Sin un sistema así no existirán mecanismos de rendición de cuentas en donde las instituciones públicas involucradas justifiquen su razón de existir y donde los tomadores de decisiones puedan crear política pública efectiva basada en información científica.
+
+
+*Este es un reporte investigativo preliminar sobre la situación cuantitativa de los femicidos en Ecuador. Todos los cálculos realizados en este artículo están disponibles en código de R en el repositorio de [GitHub](https://github.com/amarchan1998/Femicidios) del artículo.*
+
+*Edición Julio 2022- Enero 2023 ISSN 2953-6456*.
