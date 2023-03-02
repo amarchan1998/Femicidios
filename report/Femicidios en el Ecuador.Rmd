@@ -15,7 +15,7 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = F)
 ```
 
-*El 2022 finaliza como uno de los años más violentos en la historia del Ecuador, y, según cifras oficiales, éste también ha sido el año más violento para las mujeres, registrando 273 femicidios y sobrepasando considerablemente al anterior año con más femicidios: 2017 con 100 femicidios. Surge una pregunta clave pero complicada: ¿como se reconocen los femicidios y como esto afecta la confiabilidad de la estadística oficial? En este artículo, los autores presentan una investigación preliminar sobre lo que sucede tras bastidores de la estadística oficial presentada por el gobierno ecuatoriano. Identificamos tres problemas claves que interactúan entre si para imposibilitar un análisis cuantitativo adecuado de las muertes violentas de mujeres en el país.*
+*El 2022 fue uno de los años más violentos en la historia del Ecuador y, según cifras oficiales, fue el año más violento para las mujeres con 273 femicidios registrados. Una pregunta clave surge: ¿cómo se reconocen los femicidios y cómo afecta esto la confiabilidad de las estadísticas oficiales? En este artículo presentamos una investigación preliminar sobre lo que sucede detrás de las estadísticas oficiales del gobierno ecuatoriano. Identificamos tres problemas clave que impiden un análisis cuantitativo adecuado de las muertes violentas de mujeres en el país.*
 
 # El Problema Estadístico y Organizacional
 
@@ -39,9 +39,9 @@ El reporte oficial no brinda acceso a los datos ni a un documento metodológico.
 
 [^5]: El sitio web de la FGE no proporciona acceso a los datos. Los autores realizamos un pedido de información al correo electrónico proporcionado por la FGE, estadistica\@fiscalia.gob.com, para los delitos de Femicidio (Art. 141), Homicidio (Art. 144), Asesinato (Art. 140), Sicariato (Art. 143) y Violación (Art. 171).
 
--   La base proporcionada por la FGE está nivel de denuncias, por lo que no existe una manera de replicar los cálculos de femicidios que la FGE y el reporte oficial presenta.
+-   La base proporcionada por la FGE está a nivel de denuncias, por lo que no existe una manera de replicar los cálculos de femicidios que la FGE y el reporte oficial presenta.
 
--   Se menciona que *en algunos casos las víctimas no son identificadas o son desconocidas y por tanto la variable tiene subregistro.*[^6], por lo que aparentemente incluso la FGE desconoce como se generan cifras de femicidios. 
+-   Se menciona que *en algunos casos las víctimas no son identificadas o son desconocidas y por tanto la variable tiene subregistro.*[^6], por lo que aparentemente incluso la FGE desconoce cómo se generan cifras de femicidios. 
 
 -   La base no es suficiente para replicar el reporte oficial debido a que los datos están esparcidos en diferentes instituciones públicas[^7] y no todas proporcionan información al público.
 
@@ -84,7 +84,7 @@ Zambrano et al. [@zambrano2022] realizan una revisión sistemática de esta info
 knitr::include_graphics('../images/graf4-comparacion.png')
 ```
 
-Existe un problema adicional con este indicador: en 2021 se incluyeron los asesinatos de mujeres por sicariato [@zambrano2022], lo que no coincide con el femicidio según la legislación ecuatoriana. El aumento de 2020 a 2021 es entonces artificial puesto a que antes ALDEA no había tomaba sicariatos en cuenta. Por ende, no se puede esperar que este indicador sea comparable al femicidio oficial, sino más bien al total de muertes violentas. En este caso, el indicador de ALDEA está subestimado.
+Existe un problema adicional con este indicador: en 2021 se incluyeron los asesinatos de mujeres por sicariato [@zambrano2022], lo que no coincide con el femicidio según la legislación ecuatoriana. El aumento de 2020 a 2021 es entonces artificial puesto a que antes ALDEA no tomaba sicariatos en cuenta. Por ende, no se puede esperar que este indicador sea comparable al femicidio oficial, sino más bien al total de muertes violentas. En este caso, el indicador de ALDEA está subestimado.
 
 Nos contactamos con la fundación ALDEA para solicitar acceso a sus datos, pero nuestra solicitud no fue aprobada por la organización[^10]. Esto dificulta la tarea de analizar el aumento de femicidios que ALDEA reporta para 2022. Sin embargo, debido a la inclusión de los sicariatos y muertes en contexto de delincuencia organizada en este indicador, se podría argumentar que los femicidios han aumentado debido al incremento generalizado de la violencia en el Ecuador de los últimos dos años. 
 
@@ -100,7 +100,7 @@ Hasta el momento, el presente análisis de los datos existentes de muertes viole
 
 -   Buena parte del aumento de las muertes violentas de mujeres (total) en 2022 se debe a un aumento de las muertes violentas que **no** se categorizaron como femicidio, es decir, muertes como sicariatos, homicidios, asesinatos, entre otros.
 
--   Se desconoce como las instituciones públicas calculan los indicadores presentados en los reportes que se presentan al público, debido a la falta de documentos metodológicos.
+-   Se desconoce cómo las instituciones públicas calculan los indicadores presentados en los reportes que se presentan al público, debido a la falta de documentos metodológicos.
 
 -   Las organizaciones civiles han denunciado la falta de seriedad en la presentación de datos de violencia de género del estado, sin embargo, aún no ha aparecido una iniciativa clara para solucionar este problema; un indicador alternativo fue analizado, pero no es posible sacar mayores conclusiones debido a una falta de precisión metodológica y apertura de datos.
 
@@ -118,11 +118,11 @@ Las debilidades cuantitativas del Estado ecuatoriano no son más que una consecu
 
 -   En los casos donde la privacidad y la factibilidad económica lo permitan, fomentar el uso de bases de datos abiertas al público. Sirve de muy poco tener visualizaciones atractivas si no se pueden obtener las bases de datos para poder continuar el análisis.
 
--   Una integración institucional adecuada del sector público que sea visible y útil para los usuarios. La necesidad de navegar a través de diferentes ministerios, secretarias y consejos para conseguir una simple explicación es tediosa e infactible al largo plazo. El [Banco de Datos Abiertos](https://www.datosabiertos.gob.ec/) es un intento de esta integración, pero aun requiere mucho trabajo.
+-   Una integración institucional adecuada del sector público que sea visible y útil para los usuarios. La necesidad de navegar a través de diferentes ministerios, secretarías y consejos para conseguir una simple explicación es tediosa e infactible a largo plazo. El [Banco de Datos Abiertos](https://www.datosabiertos.gob.ec/) es un intento de esta integración, pero aún requiere mucho trabajo.
 
-Implementar estas prácticas en el sector publico y sociedad civil significarían un importante paso hacia un sistema fiable y abierto de datos. Sin un sistema así no existirán mecanismos de rendición de cuentas en donde las instituciones públicas involucradas justifiquen su razón de existir y donde los tomadores de decisiones puedan crear política pública efectiva basada en información científica.
+Implementar estas prácticas en el sector público y sociedad civil significarían un importante paso hacia un sistema fiable y abierto de datos. Sin un sistema así no existirán mecanismos de rendición de cuentas en donde las instituciones públicas involucradas justifiquen su razón de existir y donde los tomadores de decisiones puedan crear política pública efectiva basada en información científica.
 
 
-*Este es un reporte investigativo preliminar sobre la situación cuantitativa de los femicidos en Ecuador. Todos los cálculos realizados en este artículo están disponibles en código de R en el repositorio de [GitHub](https://github.com/amarchan1998/Femicidios) del artículo.*
+*Este es un reporte investigativo preliminar sobre la situación cuantitativa de los femicidios en Ecuador. Todos los cálculos realizados en este artículo están disponibles en código de R en el repositorio de [GitHub](https://github.com/amarchan1998/Femicidios) del artículo.*
 
 *Edición Julio 2022- Enero 2023 ISSN 2953-6456*.
