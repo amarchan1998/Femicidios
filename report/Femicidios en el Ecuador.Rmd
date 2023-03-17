@@ -28,7 +28,7 @@ En Ecuador se registran las muertes violentas de mujeres desde agosto 2014, año
 [^3]: COIP, art. 141. Recuperado de la base metodológica del reporte oficial [-@fiscalía] (párr. 5).
 
 ```{r femicidios-completo-reporte}
-knitr::include_graphics('../images/graf1-femicidios-vs-otros.png')
+knitr::include_graphics('/images/graf1-femicidios-vs-otros.png')
 ```
 
 La minoría de muertes violentas de mujeres durante el período se clasifican como femicidios, quizás debido a la dificultad de identificación que este delito tiene. El COIP sitúa al femicidio como un crimen de odio contra la mujer *por el hecho de serlo*, sin embargo, al ser dificultoso conocer los motivos del criminal, los agentes de la ley se han centrado en aspectos conductuales para poder sentenciar a los femicidas[-@fiscalía]. La segunda categoría del reporte oficial contiene muertes violentas que no se sentenciaron como femicidio, incluyendo aquellas muertes de mujeres por "homicidios intencionales"[^4]. Bajo esta aclaración, sería posible pensar que dada la dificultad de sentenciar un femicidio, buena parte de los *femicidios reales* podría estar dentro de esta cifra, pero no se conoce en que proporción.
@@ -121,7 +121,6 @@ Las debilidades cuantitativas del Estado ecuatoriano no son más que una consecu
 -   Una integración institucional adecuada del sector público que sea visible y útil para los usuarios. La necesidad de navegar a través de diferentes ministerios, secretarías y consejos para conseguir una simple explicación es tediosa e infactible a largo plazo. El [Banco de Datos Abiertos](https://www.datosabiertos.gob.ec/) es un intento de esta integración, pero aún requiere mucho trabajo.
 
 Implementar estas prácticas en el sector público y sociedad civil significarían un importante paso hacia un sistema fiable y abierto de datos. Sin un sistema así no existirán mecanismos de rendición de cuentas en donde las instituciones públicas involucradas justifiquen su razón de existir y donde los tomadores de decisiones puedan crear política pública efectiva basada en información científica.
-
 
 *Este es un reporte investigativo preliminar sobre la situación cuantitativa de los femicidios en Ecuador. Todos los cálculos realizados en este artículo están disponibles en código de R en el repositorio de [GitHub](https://github.com/amarchan1998/Femicidios) del artículo.*
 
